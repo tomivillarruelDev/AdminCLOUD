@@ -1,1 +1,115 @@
-<p>sign-up works!</p>,
+<!-- component -->
+<div
+  class="min-h-screen flex mt-10 justify-center items-center bg-white animate_animated animate__fadeIn"
+>
+  <div
+    class="p-10 border-[1px] -mt-10 border-slate-200 rounded-md flex flex-col items-center space-y-3"
+  >
+    <div class="pt-8 pb-2">
+      <img
+        width="200"
+        class="-mt-10"
+        src="/logos/adminCLOUD.svg"
+        alt="AdminCLOUD logo"
+      />
+    </div>
+
+    <form [formGroup]="signUpForm">
+      <div class="flex flex-col space-y-1">
+        <input
+          class="p-3 border-[1px] border-slate-500 rounded-sm w-80 mb-0.5"
+          placeholder="Nombre"
+          formControlName="name"
+        />
+
+        <input
+          class="p-3 border-[1px] border-slate-500 rounded-sm w-80 mb-0.5"
+          placeholder="Apellido"
+          formControlName="lastname"
+        />
+
+        <input
+          class="p-3 border-[1px] border-slate-500 rounded-sm w-80 mb-0.5"
+          placeholder="Género"
+          formControlName="genre"
+        />
+
+        <input
+          class="p-3 border-[1px] border-slate-500 rounded-sm w-80 mb-0.5"
+          placeholder="Email"
+          formControlName="email"
+        />
+
+        <input
+          class="p-3 border-[1px] border-slate-500 rounded-sm w-80 mb-0.5"
+          placeholder="Jerarquía"
+          formControlName="hierarchy"
+        />
+
+        <input
+          class="p-3 border-[1px] border-slate-500 rounded-sm w-80 mb-0.5"
+          placeholder="Usuario"
+          formControlName="user"
+        />
+
+        <input
+          class="p-3 border-[1px] border-slate-500 rounded-sm w-80"
+          type="password"
+          placeholder="Contraseña"
+          formControlName="password"
+        />
+        <input
+          class="p-3 border-[1px] border-slate-500 rounded-sm w-80"
+          type="password"
+          placeholder="Repite la contraseña"
+          formControlName="password2"
+        />
+      </div>
+    </form>
+
+    <div class="flex flex-col space-y-5 w-full">
+      <button
+        class="w-full bg-[#0085C2] rounded-3xl p-3 text-white font-bold transition duration-200"
+        (click)="onSubmit()"
+        [disabled]="!signUpForm.valid"
+        [ngClass]="{
+          'opacity-60': !signUpForm.valid,
+          ' hover:bg-[#004AAD]': signUpForm.valid,
+        }"
+      >
+        Regístrate
+      </button>
+
+      <div
+        class="flex items-center justify-center border-t-[1px] border-t-slate-300 w-full relative"
+      ></div>
+    </div>
+
+    <div class="w-10/12 p-5">
+      <p class="text-red-600 text-center text-sm animate__fadeIn">
+        El nombre de usuario no es correcto. Vuelve a comprobarlo.
+      </p>
+      <p class="text-red-600 text-center text-sm animate__fadeIn">
+        Tu contraseña no es correcta. Vuelve a comprobarla.
+      </p>
+    </div>
+
+    <div>
+      <p>
+        ¿Tienes una cuenta?
+        <a
+          class="font-bold text-[#0085C2] hover:underline cursor-pointer"
+          [routerLink]="['/login/sign-in']"
+        >
+          Inicia Sesión
+        </a>
+      </p>
+    </div>
+
+    <div class="flex space-x-1 p-8 text-sm">
+      <p class="hover:underline cursor-pointer">Ingles</p>
+      <div class="border-r-[1px] border-r-slate-300"></div>
+      <p class="font-bold hover:underline cursor-pointer">Español</p>
+    </div>
+  </div>
+</div>

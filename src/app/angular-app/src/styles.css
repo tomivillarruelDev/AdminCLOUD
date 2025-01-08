@@ -1,0 +1,43 @@
+/* Estilos globales para la aplicación */
+
+/* Estilos para el menú hamburguesa en pantallas pequeñas */
+@media (max-width: 768px) {
+  .hamburger-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+
+  .hamburger-icon {
+    cursor: pointer;
+    padding: 10px;
+  }
+
+  .side-menu {
+    display: none; /* Ocultar el menú lateral por defecto */
+  }
+
+  .side-menu.active {
+    display: block; /* Mostrar el menú lateral cuando está activo */
+  }
+}
+
+/* Estilos para pantallas grandes */
+@media (min-width: 769px) {
+  .side-menu {
+    display: flex;
+    flex-direction: column;
+    width: 250px; /* Ancho del menú lateral */
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: white;
+    z-index: 1000;
+  }
+}

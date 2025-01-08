@@ -1,0 +1,78 @@
+<!-- component -->
+<div
+  class="min-h-screen flex justify-center items-center bg-white animate_animated animate__fadeIn"
+>
+  <div
+    class="p-10 border-[1px] -mt-8 border-slate-200 rounded-md flex flex-col items-center space-y-3"
+  >
+    <div class="pt-8 pb-2">
+      <img
+        width="200"
+        class="-mt-10"
+        src="/logos/adminCLOUD.svg"
+        alt="AdminCLOUD logo"
+      />
+    </div>
+
+    <form [formGroup]="signInForm">
+      <input
+        class="p-3 border-[1px] border-slate-500 rounded-sm w-80 mb-0.5"
+        placeholder="Usuario"
+        formControlName="user"
+      />
+
+      <div class="flex flex-col space-y-1">
+        <input
+          class="p-3 border-[1px] border-slate-500 rounded-sm w-80"
+          type="password"
+          placeholder="Contraseña"
+          formControlName="password"
+        />
+
+        <p class="font-bold text-[#0085C2]">¿Has olvidado tu contraseña?</p>
+      </div>
+    </form>
+
+    <div class="flex flex-col space-y-5 w-full">
+      <button
+        class="w-full bg-[#0085C2] rounded-3xl p-3 text-white font-bold transition duration-200"
+        (click)="onSubmit()"
+        [disabled]="!signInForm.valid"
+        [ngClass]="{
+          'opacity-60': !signInForm.valid,
+          ' hover:bg-[#004AAD]': signInForm.valid,
+        }"
+      >
+        Iniciar Sesión
+      </button>
+
+      <div
+        class="flex items-center justify-center border-t-[1px] border-t-slate-300 w-full relative"
+      >
+        <div class="-mt-1 font-bod bg-white px-5 absolute">O</div>
+      </div>
+
+      <button
+        class="w-full border-[#004AAD] hover:border-[#003087] border-[1px] rounded-3xl p-3 text-[#0085C2] hover:text-[#004AAD] font-bold transition duration-200"
+        [routerLink]="['/login/sign-up']"
+      >
+        Regístrate
+      </button>
+    </div>
+
+    <div class="w-10/12 p-5">
+      <p class="text-red-600 text-center text-sm animate__fadeIn">
+        El nombre de usuario no es correcto. Vuelve a comprobarlo.
+      </p>
+      <p class="text-red-600 text-center text-sm animate__fadeIn">
+        Tu contraseña no es correcta. Vuelve a comprobarla.
+      </p>
+    </div>
+
+    <div class="flex space-x-1 p-20 text-sm">
+      <p class="hover:underline cursor-pointer">Ingles</p>
+      <div class="border-r-[1px] border-r-slate-300"></div>
+      <p class="font-bold hover:underline cursor-pointer">Español</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,114 @@
+<!-- component -->
+<div class="scrollable-menu md:hidden">
+  <div class="ml-6 flex w-full flex-col items-center">
+    <div class="space-y-20 rounded-md bg-white">
+      <div class="flex flex-col items-center">
+        <div class="fixed bg-white z-10 p-5 pb-10">
+          <img
+            src="favicon.svg"
+            alt="adminCloud"
+            class="w-8 h-8 fill-current"
+          />
+        </div>
+      </div>
+
+      <ul>
+        @for (menuItem of menuItemsData; track $index) {
+          <li class="p-3" #menuItem>
+            <a
+              class="flex flex-col items-center transition-all hover:text-[#004AAD] text-gray-500"
+              [routerLink]="menuItem.path"
+              routerLinkActive="text-primary"
+              [class.hovered]="menuItem.isHovered"
+              (mouseenter)="onMouseEnter(menuItem)"
+              (mouseleave)="onMouseLeave(menuItem)"
+            >
+              <app-svg-icon
+                [iconPath]="menuItem.data?.['icon']"
+                [isHovered]="menuItem.isHovered"
+              >
+              </app-svg-icon>
+
+              <span class="text-xxs mt-1 text-center">{{
+                menuItem.title
+              }}</span>
+            </a>
+          </li>
+        }
+      </ul>
+
+      <div>
+        <a
+          class="p-5 flex flex-col items-center transition-all hover:text-[#004AAD] text-gray-500"
+          routerLink="/login"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="h-6 w-6 cursor-pointer transition-all text-gray-500 hover:text-[#004AAD]"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75"
+            />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="md:flex hidden justify-between items-center bg-white p-4">
+  <img
+    src="favicon.svg"
+    alt="adminCloud"
+    class="w-8 h-8 fill-current mx-auto"
+  />
+  <button class="text-gray-500 hover:text-[#004AAD]" (click)="toggleMenu()">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      class="h-6 w-6"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M4 6h16M4 12h16m-7 6h7"
+      />
+    </svg>
+  </button>
+</div>
+
+<div
+  *ngIf="isMenuOpen"
+  class="absolute top-0 left-0 w-full h-full bg-white z-20"
+>
+  <ul>
+    @for (menuItem of menuItemsData; track $index) {
+      <li class="p-3" #menuItem>
+        <a
+          class="flex flex-col items-center transition-all hover:text-[#004AAD] text-gray-500"
+          [routerLink]="menuItem.path"
+          routerLinkActive="text-primary"
+          [class.hovered]="menuItem.isHovered"
+          (mouseenter)="onMouseEnter(menuItem)"
+          (mouseleave)="onMouseLeave(menuItem)"
+        >
+          <app-svg-icon
+            [iconPath]="menuItem.data?.['icon']"
+            [isHovered]="menuItem.isHovered"
+          >
+          </app-svg-icon>
+
+          <span class="text-xxs mt-1 text-center">{{ menuItem.title }}</span>
+        </a>
+      </li>
+    }
+  </ul>
+</div>

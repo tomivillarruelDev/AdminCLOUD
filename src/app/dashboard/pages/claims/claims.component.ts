@@ -8,4 +8,4 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrl: './claims.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class ClaimsComponent { }
+export default class ClaimsComponent {}

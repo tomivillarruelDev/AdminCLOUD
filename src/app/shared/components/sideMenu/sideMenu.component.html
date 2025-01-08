@@ -1,0 +1,126 @@
+<!-- component -->
+<!-- [ngClass]="{
+  'animate__animated animate__fadeInLeft': !isMobile,
+
+}" -->
+<div>
+  <div
+    class="sm:ml-6 sm:flex sm:w-20 w-full sm:flex-col sm:items-center scrollable-menu"
+    [ngClass]="{
+      'animate__animated animate__fadeInDown': isMobile,
+      'menu-overlay': isMenuOverlay,
+    }"
+  >
+    <div
+      class="sm:space-y-20 rounded-md bg-white rounded-b-[20px] sm:roundedrounded-b-[0px]"
+    >
+      <div class="flex sm:flex-col flex-row sm:items-center">
+        <div
+          class="sm:fixed z-10 p-5 sm:pb-10 flex justify-between sm:justify-center items-center w-full sm:w-auto sm:bg-white"
+        >
+          <button
+            class="hamburger-menu"
+            [class.open]="isMenuOpen"
+            (click)="toggleMenu()"
+          >
+            @if (!isMenuOpen) {
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="h-6 w-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3.75 7.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5"
+                />
+              </svg>
+            }
+            @if (isMenuOpen) {
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="h-6 w-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            }
+          </button>
+
+          <a [routerLink]="['/dashboard']">
+            <img
+              src="favicon.svg"
+              alt="adminCloud"
+              class="w-8 h-8 fill-current mx-auto sm:mx-0"
+            />
+          </a>
+          <div class="w-6 sm:w-0"></div>
+        </div>
+      </div>
+
+      <ul
+        class="menu-items sm:w-full"
+        [ngClass]="{
+          open: isMenuOpen,
+          'animate__animated animate__fadeInUp': isMobile,
+        }"
+      >
+        @for (menuItem of menuItemsData; track $index) {
+          <li class="p-3 text-center" #menuItem>
+            <a
+              class="flex sm:flex-col items-center flex-row transition-all hover:text-[#004AAD] text-gray-500"
+              [routerLink]="menuItem.path"
+              routerLinkActive="text-primary"
+              [class.hovered]="menuItem.isHovered"
+              (mouseenter)="onMouseEnter(menuItem)"
+              (mouseleave)="onMouseLeave(menuItem)"
+              (click)="isMenuOpen = false"
+            >
+              <app-svg-icon
+                class="flex sm:m-0 mr-2"
+                [iconPath]="menuItem.data?.['icon']"
+                [isHovered]="menuItem.isHovered"
+              ></app-svg-icon>
+
+              <span class="sm:text-xxs text-sm mt-1 text-center">
+                {{ menuItem.title }}
+              </span>
+            </a>
+          </li>
+        }
+      </ul>
+
+      <div [class.open]="isMenuOpen" class="menu-items">
+        <a
+          class="p-5 flex flex-col items-center transition-all hover:text-[#004AAD] text-gray-500"
+          routerLink="/login"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="h-6 w-6 cursor-pointer transition-all text-gray-500 hover:text-[#004AAD]"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75"
+            />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

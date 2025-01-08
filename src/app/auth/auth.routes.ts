@@ -3,7 +3,6 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    loadComponent: () => import('./auth.component'),
     children: [
       {
         path: 'sign-in',
@@ -11,8 +10,13 @@ export const routes: Routes = [
         title: 'Sign In',
       },
       {
+        path: 'sign-up',
+        loadComponent: () => import('./pages/sign-up/sign-up.component'),
+        title: 'Sign  Up',
+      },
+      {
         path: '**',
-        redirectTo: 'dashboard',
+        redirectTo: 'sign-in',
         pathMatch: 'full',
       },
     ],

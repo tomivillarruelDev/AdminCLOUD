@@ -1,1 +1,75 @@
-<p>home works!</p>
+<div class="grid grid-cols-1 sm:grid-cols-12 gap-4">
+  <div class="col-span-1 sm:col-span-8">
+    <app-horizon-card
+      cardTitle="Sales by Insurer"
+      cardIconPath="/icons/chart-pie.svg"
+      cardTitleClasses="sm:text-xl"
+      customClasses="p-4"
+    >
+      <app-vertical-bar-chart
+        barChartTitle="Sales by Insurer"
+        [barChartLabels]="[
+          'Best Doctors',
+          'Metlife',
+          'Mapfre',
+          'La Positiva',
+          'Pacifico',
+          'Rimac',
+          'Salud S.A',
+          'VUMI',
+        ]"
+        [barChartData]="[
+          2980123, 3123123, 2342342, 1889233, 2342342, 1231231, 876876, 234234,
+        ]"
+        heightChart="44vh"
+      >
+      </app-vertical-bar-chart>
+    </app-horizon-card>
+  </div>
+  <div class="col-span-1 sm:col-span-4 grid grid-cols-1 gap-4">
+    <div class="w-full">
+      <app-horizon-card
+        cardTitle="Ventas por Ramo"
+        cardTitleClasses="text-xs text-white"
+        cardIconPath="/icons/chart-pie.svg"
+        customClasses="bg-secondary-primary-gradient p-4"
+        cardIconClass="p-1 rounded-[16px] text-primary bg-[#F4F7FE] bg-opacity-80"
+      >
+        <app-vertical-bar-chart
+          barChartTitle="Ventas por Ramo"
+          [barChartColors]="['rgba(255, 111, 97, 1)', 'rgba(255, 204, 0, 1)']"
+          [barChartLabels]="['Asistencia medica', 'Vehículos', 'Vida en grupo', 'Responsabilidad Civil', 'Vida Individual']"
+          [barChartData]="[186891, 122544, 128398, 74184, 38765]"
+          [displayDataLabels]="false"
+          heightChart="13.5vh"
+          textColorChart="white"
+        >
+        </app-vertical-bar-chart>
+      </app-horizon-card>
+    </div>
+    <div class="w-full">
+      <app-horizon-card
+        cardTitle="Chart 2"
+        cardTitleClasses="text-xs"
+        cardIconPath="/icons/chart-pie.svg"
+        cardIconClass="p-1 rounded-[16px]"
+      >
+        <app-vertical-bar-chart
+          barChartTitle="Chart 2"
+          [barChartLabels]="[
+            'Label A',
+            'Label B',
+            'Label C',
+            'Label D',
+            'Label E',
+            'Label f',
+          ]"
+          [barChartData]="[15, 25, 100, 70, 49, 19, 1, 44]"
+          [displayDataLabels]="false"
+          heightChart="13.5vh"
+        >
+        </app-vertical-bar-chart>
+      </app-horizon-card>
+    </div>
+  </div>
+</div>

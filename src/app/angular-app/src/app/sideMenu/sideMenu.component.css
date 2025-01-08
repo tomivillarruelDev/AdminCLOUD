@@ -1,0 +1,42 @@
+.scrollable-menu {
+  position: fixed;
+  height: 94vh;
+  overflow-y: auto;
+}
+
+.scrollable-menu::-webkit-scrollbar {
+  display: none;
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 768px) {
+  .scrollable-menu {
+    position: relative;
+    height: auto;
+    overflow: hidden;
+  }
+
+  .hamburger-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  .hamburger-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .menu-items {
+    display: none; /* Ocultar los elementos del menú por defecto */
+  }
+
+  .menu-items.active {
+    display: flex; /* Mostrar los elementos del menú cuando está activo */
+    flex-direction: column;
+    align-items: center;
+  }
+}
