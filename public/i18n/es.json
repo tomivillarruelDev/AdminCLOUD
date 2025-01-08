@@ -2,7 +2,8 @@
   "HELLO": "Hola Mundo",
   "Sales by Insurer": "Ventas por Aseguradora",
   "Sales by Branch": "Ventas por Ramo",
-  
+  "Sales by Agent": "Ventas por Agente",
+
   "Control Panel": "Panel de Control",
   "Contacts": "Contactos",
   "Companies": "Aseguradoras",
@@ -15,6 +16,7 @@
   "Sales": "Ventas",
   "Quotations": "Cotizaciones",
   "Options": "Opciones",
+  
   "First Name": "Nombre",
   "Last Name": "Apellido",
   "Gender": "Género",
@@ -30,7 +32,7 @@
   "Incorrect Password": "Tu contraseña no es correcta. Vuelve a comprobarla.",
   "Do you have an account?": "¿Tienes una cuenta?",
   "Log In": "Inicia Sesión",
-  
+
   "English": "Ingles",
   "Spanish": "Español"
 }

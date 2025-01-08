@@ -2,6 +2,8 @@
   "HELLO": "Hello World",
   "Sales by Insurer": "Sales by Insurer",
   "Sales by Branch": "Sales by Branch",
+  "Sales by Agent": "Sales by Agent",
+
   "Control Panel": "Control Panel",
   "Contacts": "Contacts",
   "Companies": "Companies",
@@ -14,6 +16,7 @@
   "Sales": "Sales",
   "Quotations": "Quotations",
   "Options": "Options",
+
   "First Name": "First Name",
   "Last Name": "Last Name",
   "Gender": "Gender",
@@ -29,6 +32,7 @@
   "Incorrect Password": "The password is incorrect. Please check it again.",
   "Do you have an account?": "Do you have an account?",
   "Log In": "Log In",
+  
   "English": "English",
   "Spanish": "Spanish"
 }
