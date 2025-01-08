@@ -7,7 +7,7 @@ export const routes: Routes = [
     children: [
       {
         path: 'control-panel',
-        loadComponent: () => import('./pages/home/home.component'),
+        loadComponent: () => import('./pages/control-panel/control-panel.component'),
         title: 'Control Panel',
         data: {
           icon: '/icons/control-panel.svg',

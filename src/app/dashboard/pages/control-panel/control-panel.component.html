@@ -59,14 +59,14 @@
     <!-- Gráfico pequeño 2 -->
     <div class="flex-1">
       <app-horizon-card
-        [cardTitle]="'Sales by Insurer' | translate"
+        [cardTitle]="'Sales by Agent' | translate"
         cardIconPath="/icons/chart-pie.svg"
         cardIconClass="p-1 rounded-[16px]"
         cardTitleClasses="sm:text-xs"
         customClasses="p-1 h-full"
       >
         <app-pie-chart
-          [pieChartTitle]="'Sales by Insurer' | translate"
+          [pieChartTitle]="'Sales by Agent' | translate"
           [pieChartLabels]="[ 'Paez Patricio', 'Valencia Fernanda', 'Dominguez Pedro', 'Sanchez Ricardo', 'Jaramillo Amparo']"
           [pieChartData]="[410063, 377526, 319518, 277840, 237435]"
           [pieChartColors]="['rgba(0, 133, 194, 1)', 'rgba(0, 74, 173, 1)']"
@@ -77,4 +77,10 @@
       </app-horizon-card>
     </div>
   </div>
+</div>
+
+
+
+<div class="flex flex-col sm:flex-row  gap-4">
+
 </div>

@@ -12,7 +12,7 @@ import { HorizonCardComponent } from '@shared/components';
 import { PieChartComponent } from '@shared/components/pie-chart/pie-chart.component';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-control-panel',
   standalone: true,
   imports: [
     HorizonCardComponent,
@@ -21,11 +21,11 @@ import { PieChartComponent } from '@shared/components/pie-chart/pie-chart.compon
     TranslateModule,
     LanguageSelectorComponent,
   ],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.css',
+  templateUrl: './control-panel.component.html',
+  styleUrl: './control-panel.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class HomeComponent {
+export default class ControlPanelComponent {
   private menuService = inject(MenuService);
 
   get isMobile(): boolean {
