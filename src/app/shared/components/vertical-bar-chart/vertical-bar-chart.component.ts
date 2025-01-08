@@ -21,6 +21,7 @@ import { MenuService } from '@shared/services/menu.service';
   templateUrl: './vertical-bar-chart.component.html',
   styleUrls: ['./vertical-bar-chart.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  
 })
 export class VerticalBarChartComponent {
   public barChartType: ChartType = 'bar';

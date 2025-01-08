@@ -13,10 +13,20 @@ import {
 } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 
+import { TranslateModule } from '@ngx-translate/core';
+
+import { LanguageSelectorComponent } from '@shared/components';
+
 @Component({
   selector: 'app-sign-in',
   standalone: true,
-  imports: [CommonModule, RouterModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    ReactiveFormsModule,
+    TranslateModule,
+    LanguageSelectorComponent,
+  ],
   templateUrl: './sign-in.component.html',
   styleUrl: './sign-in.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

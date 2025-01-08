@@ -1,13 +1,15 @@
+<app-language-selector></app-language-selector>
+
 <div class="grid grid-cols-1 sm:grid-cols-12 gap-4">
   <div class="col-span-1 sm:col-span-8">
     <app-horizon-card
-      cardTitle="Sales by Insurer"
+      [cardTitle]="'Sales by Insurer' | translate"
       cardIconPath="/icons/chart-pie.svg"
       cardTitleClasses="sm:text-xl"
       customClasses="p-4"
     >
       <app-vertical-bar-chart
-        barChartTitle="Sales by Insurer"
+        [barChartTitle]="'Sales by Insurer' | translate"
         [barChartLabels]="[
           'Best Doctors',
           'Metlife',
@@ -29,14 +31,14 @@
   <div class="col-span-1 sm:col-span-4 grid grid-cols-1 gap-4">
     <div class="w-full">
       <app-horizon-card
-        cardTitle="Ventas por Ramo"
+        [cardTitle]="'Sales by Branch' | translate"
         cardTitleClasses="text-xs text-white"
         cardIconPath="/icons/chart-pie.svg"
-        customClasses="bg-secondary-primary-gradient p-4"
+        customClasses="bg-primary-secondary-gradient p-4"
         cardIconClass="p-1 rounded-[16px] text-primary bg-[#F4F7FE] bg-opacity-80"
       >
         <app-vertical-bar-chart
-          barChartTitle="Ventas por Ramo"
+          [barChartTitle]="'Sales by Branch' | translate"
           [barChartColors]="['rgba(255, 111, 97, 1)', 'rgba(255, 204, 0, 1)']"
           [barChartLabels]="['Asistencia medica', 'Vehículos', 'Vida en grupo', 'Responsabilidad Civil', 'Vida Individual']"
           [barChartData]="[186891, 122544, 128398, 74184, 38765]"

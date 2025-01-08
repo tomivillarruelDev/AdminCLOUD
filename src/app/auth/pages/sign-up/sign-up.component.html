@@ -18,50 +18,50 @@
       <div class="flex flex-col space-y-1">
         <input
           class="p-3 border-[1px] border-slate-500 rounded-sm w-80 mb-0.5"
-          placeholder="Nombre"
+          placeholder="{{ 'First Name' | translate }}"
           formControlName="name"
         />
 
         <input
           class="p-3 border-[1px] border-slate-500 rounded-sm w-80 mb-0.5"
-          placeholder="Apellido"
+          placeholder="{{ 'Last Name' | translate }}"
           formControlName="lastname"
         />
 
         <input
           class="p-3 border-[1px] border-slate-500 rounded-sm w-80 mb-0.5"
-          placeholder="Género"
+          placeholder="{{ 'Gender' | translate }}"
           formControlName="genre"
         />
 
         <input
           class="p-3 border-[1px] border-slate-500 rounded-sm w-80 mb-0.5"
-          placeholder="Email"
+          placeholder="{{ 'Email' | translate }}"
           formControlName="email"
         />
 
         <input
           class="p-3 border-[1px] border-slate-500 rounded-sm w-80 mb-0.5"
-          placeholder="Jerarquía"
+          placeholder="{{ 'Hierarchy' | translate }}"
           formControlName="hierarchy"
         />
 
         <input
           class="p-3 border-[1px] border-slate-500 rounded-sm w-80 mb-0.5"
-          placeholder="Usuario"
+          placeholder="{{ 'Username' | translate }}"
           formControlName="user"
         />
 
         <input
           class="p-3 border-[1px] border-slate-500 rounded-sm w-80"
           type="password"
-          placeholder="Contraseña"
+          placeholder="{{ 'Password' | translate }}"
           formControlName="password"
         />
         <input
           class="p-3 border-[1px] border-slate-500 rounded-sm w-80"
           type="password"
-          placeholder="Repite la contraseña"
+          placeholder="{{ 'Repeat Password' | translate }}"
           formControlName="password2"
         />
       </div>
@@ -77,7 +77,7 @@
           ' hover:bg-[#004AAD]': signUpForm.valid,
         }"
       >
-        Regístrate
+        {{ 'Sign Up' | translate }}
       </button>
 
       <div
@@ -87,29 +87,25 @@
 
     <div class="w-10/12 p-5">
       <p class="text-red-600 text-center text-sm animate__fadeIn">
-        El nombre de usuario no es correcto. Vuelve a comprobarlo.
+        {{ 'Incorrect Username' | translate }}
       </p>
       <p class="text-red-600 text-center text-sm animate__fadeIn">
-        Tu contraseña no es correcta. Vuelve a comprobarla.
+        {{ 'Incorrect Password' | translate }}
       </p>
     </div>
 
     <div>
       <p>
-        ¿Tienes una cuenta?
+        {{ 'Do you have an account?' | translate }}
         <a
           class="font-bold text-[#0085C2] hover:underline cursor-pointer"
           [routerLink]="['/login/sign-in']"
         >
-          Inicia Sesión
+          {{ 'Log In' | translate }}
         </a>
       </p>
     </div>
 
-    <div class="flex space-x-1 p-8 text-sm">
-      <p class="hover:underline cursor-pointer">Ingles</p>
-      <div class="border-r-[1px] border-r-slate-300"></div>
-      <p class="font-bold hover:underline cursor-pointer">Español</p>
-    </div>
+    <app-language-selector class="p-20"></app-language-selector>
   </div>
 </div>

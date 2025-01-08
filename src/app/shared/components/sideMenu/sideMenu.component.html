@@ -76,7 +76,7 @@
         }"
       >
         @for (menuItem of menuItemsData; track $index) {
-          <li class="p-3 text-center" #menuItem>
+          <li class="p-3 text-center animate__animated animate__fadeIn" #menuItem>
             <a
               class="flex sm:flex-col items-center flex-row transition-all hover:text-[#004AAD] text-gray-500"
               [routerLink]="menuItem.path"
@@ -93,7 +93,7 @@
               ></app-svg-icon>
 
               <span class="sm:text-xxs text-sm mt-1 text-center">
-                {{ menuItem.title }}
+                {{ menuItem.title | translate }}
               </span>
             </a>
           </li>

@@ -1,14 +1,28 @@
-import { Component, inject } from '@angular/core';
-import { VerticalBarChartComponent } from '@shared/components';
-import { HorizonCardComponent } from '@shared/components/horizon-card/horizon-card.component';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+
+import { TranslateService } from '@ngx-translate/core';
+import { TranslateModule } from '@ngx-translate/core';
+
 import { MenuService } from '@shared/services/menu.service';
+
+import {
+  LanguageSelectorComponent,
+  VerticalBarChartComponent,
+} from '@shared/components';
+import { HorizonCardComponent } from '@shared/components';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HorizonCardComponent, VerticalBarChartComponent],
+  imports: [
+    HorizonCardComponent,
+    VerticalBarChartComponent,
+    TranslateModule,
+    LanguageSelectorComponent,
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class HomeComponent {
   private menuService = inject(MenuService);

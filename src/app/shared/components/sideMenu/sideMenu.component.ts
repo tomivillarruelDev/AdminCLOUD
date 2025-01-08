@@ -10,15 +10,19 @@ import {
 } from '@angular/core';
 import { routes } from '../../../dashboard/dashboard.routes';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
-import { SvgIconComponent } from '../svgIcon/svgIcon.component';
-import { filter } from 'rxjs';
-import { MenuService } from '../../services/menu.service';
+
 import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
+
+import { filter } from 'rxjs';
+
+import { MenuService } from '@shared/services/menu.service';
+import { SvgIconComponent } from '@shared/components';
 
 @Component({
   selector: 'app-side-menu',
   standalone: true,
-  imports: [RouterModule, SvgIconComponent, CommonModule],
+  imports: [RouterModule, CommonModule, TranslateModule, SvgIconComponent],
   templateUrl: './sideMenu.component.html',
   styleUrls: ['./sideMenu.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -12,12 +12,22 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
+
 import { AuthService } from '../../services/auth.service';
+import { TranslateModule } from '@ngx-translate/core';
+
+import { LanguageSelectorComponent } from '@shared/components';
 
 @Component({
   selector: 'app-sign-up',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    RouterModule,
+    TranslateModule,
+    LanguageSelectorComponent,
+  ],
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

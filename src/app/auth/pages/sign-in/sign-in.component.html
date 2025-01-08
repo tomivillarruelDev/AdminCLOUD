@@ -17,7 +17,7 @@
     <form [formGroup]="signInForm">
       <input
         class="p-3 border-[1px] border-slate-500 rounded-sm w-80 mb-0.5"
-        placeholder="Usuario"
+        placeholder="{{ 'Username' | translate }}"
         formControlName="user"
       />
 
@@ -25,11 +25,11 @@
         <input
           class="p-3 border-[1px] border-slate-500 rounded-sm w-80"
           type="password"
-          placeholder="Contraseña"
+          placeholder="{{ 'Password' | translate }}"
           formControlName="password"
         />
 
-        <p class="font-bold text-[#0085C2]">¿Has olvidado tu contraseña?</p>
+        <p class="font-bold text-[#0085C2]">{{ 'Forgot Password' | translate }}</p>
       </div>
     </form>
 
@@ -43,7 +43,7 @@
           ' hover:bg-[#004AAD]': signInForm.valid,
         }"
       >
-        Iniciar Sesión
+        {{ 'Sign In' | translate }}
       </button>
 
       <div
@@ -56,23 +56,19 @@
         class="w-full border-[#004AAD] hover:border-[#003087] border-[1px] rounded-3xl p-3 text-[#0085C2] hover:text-[#004AAD] font-bold transition duration-200"
         [routerLink]="['/login/sign-up']"
       >
-        Regístrate
+        {{ 'Sign Up' | translate }}
       </button>
     </div>
 
     <div class="w-10/12 p-5">
       <p class="text-red-600 text-center text-sm animate__fadeIn">
-        El nombre de usuario no es correcto. Vuelve a comprobarlo.
+        {{ 'Incorrect Username' | translate }}
       </p>
       <p class="text-red-600 text-center text-sm animate__fadeIn">
-        Tu contraseña no es correcta. Vuelve a comprobarla.
+        {{ 'Incorrect Password' | translate }}
       </p>
     </div>
 
-    <div class="flex space-x-1 p-20 text-sm">
-      <p class="hover:underline cursor-pointer">Ingles</p>
-      <div class="border-r-[1px] border-r-slate-300"></div>
-      <p class="font-bold hover:underline cursor-pointer">Español</p>
-    </div>
+    <app-language-selector class="p-20"></app-language-selector>
   </div>
 </div>

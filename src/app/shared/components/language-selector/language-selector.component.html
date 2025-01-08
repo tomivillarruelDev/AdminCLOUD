@@ -1,0 +1,17 @@
+<div class="flex space-x-1 text-sm">
+  <p
+    class="cursor-pointer transition-all duration-500 hover:underline hover:text-secondary"
+    [ngClass]="{ 'font-bold text-primary': selectedLanguage === 'en' }"
+    (click)="changeLanguage('en')"
+  >
+    {{ 'English' | translate }}
+  </p>
+  <div class="border-r-[1px] border-r-slate-300"></div>
+  <p
+    class="cursor-pointer transition-all duration-500 hover:underline hover:text-secondary"
+    [ngClass]="{ 'font-bold text-primary': selectedLanguage === 'es' }"
+    (click)="changeLanguage('es')"
+  >
+    {{ 'Spanish' | translate }}
+  </p>
+</div>
