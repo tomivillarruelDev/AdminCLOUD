@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 
-import { TranslateService } from '@ngx-translate/core';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { MenuService } from '@shared/services/menu.service';
@@ -10,6 +9,7 @@ import {
   VerticalBarChartComponent,
 } from '@shared/components';
 import { HorizonCardComponent } from '@shared/components';
+import { PieChartComponent } from '@shared/components/pie-chart/pie-chart.component';
 
 @Component({
   selector: 'app-home',
@@ -17,6 +17,7 @@ import { HorizonCardComponent } from '@shared/components';
   imports: [
     HorizonCardComponent,
     VerticalBarChartComponent,
+    PieChartComponent,
     TranslateModule,
     LanguageSelectorComponent,
   ],

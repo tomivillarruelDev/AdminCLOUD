@@ -24,7 +24,7 @@
         [barChartData]="[
           2980123, 3123123, 2342342, 1889233, 2342342, 1231231, 876876, 234234,
         ]"
-        heightChart="38vh"
+        barChartHeightChart="38vh"
       >
       </app-vertical-bar-chart>
     </app-horizon-card>
@@ -38,17 +38,18 @@
         [cardTitle]="'Sales by Branch' | translate"
         cardTitleClasses="text-xs text-white"
         cardIconPath="/icons/chart-pie.svg"
-        customClasses="bg-primary-secondary-gradient p-1 h-full"
         cardIconClass="p-1 rounded-[16px] text-primary bg-[#F4F7FE]"
+        customClasses="bg-primary-secondary-gradient p-1 h-full"
       >
         <app-vertical-bar-chart
           [barChartTitle]="'Sales by Branch' | translate"
           [barChartColors]="['rgba(255, 111, 97, 1)', 'rgba(255, 204, 0, 1)']"
-          [barChartLabels]="['Asistencia medica', 'Vehículos', 'Vida en grupo', 'Responsabilidad Civil', 'Vida Individual']"
+          [barChartLabels]="['Asistencia medica', 'Aseguramiento Vehículos', 'Vida en grupo', 'Responsabilidad Civil', 'Vida Individual']"
           [barChartData]="[186891, 122544, 128398, 74184, 38765]"
           [displayDataLabels]="false"
           [shouldSplitLabels]="true"
-          heightChart="13vh"
+          [barChartLabelsSize]="9"
+          barChartHeightChart="13vh"
           textColorChart="white"
         >
         </app-vertical-bar-chart>
@@ -58,21 +59,21 @@
     <!-- Gráfico pequeño 2 -->
     <div class="flex-1">
       <app-horizon-card
-        [cardTitle]="'Sales by Agent' | translate"
-        cardTitleClasses="text-xs"
+        [cardTitle]="'Sales by Insurer' | translate"
         cardIconPath="/icons/chart-pie.svg"
         cardIconClass="p-1 rounded-[16px]"
-        customClasses=" h-full p-1"
+        cardTitleClasses="sm:text-xs"
+        customClasses="p-1 h-full"
       >
-        <app-vertical-bar-chart
-          [barChartTitle]="'Sales by Agent' | translate"
-          [barChartColors]="['rgba(0, 133, 194, 1)', 'rgba(0, 74, 173, 1)']"
-          [barChartLabels]="[ 'Label A', 'Label B', 'Label C', 'Label D', 'Label E', 'Label F' ]"
-          [barChartData]="[15, 25, 100, 70, 49, 19, 1, 44]"
-          [displayDataLabels]="false"
-          heightChart="13vh"
+        <app-pie-chart
+          [pieChartTitle]="'Sales by Insurer' | translate"
+          [pieChartLabels]="[ 'Paez Patricio', 'Valencia Fernanda', 'Dominguez Pedro', 'Sanchez Ricardo', 'Jaramillo Amparo']"
+          [pieChartData]="[410063, 377526, 319518, 277840, 237435]"
+          [pieChartColors]="['rgba(0, 133, 194, 1)', 'rgba(0, 74, 173, 1)']"
+          pieChartHeightChart="20vh"
+          textColorChart="white"
         >
-        </app-vertical-bar-chart>
+        </app-pie-chart>
       </app-horizon-card>
     </div>
   </div>
