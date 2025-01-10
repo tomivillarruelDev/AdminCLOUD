@@ -1,86 +1,135 @@
-<app-language-selector></app-language-selector>
+<div class="flex flex-col gap-y-6">
+  <app-language-selector></app-language-selector>
 
-<div class="flex flex-col sm:flex-row  gap-4">
-  <!-- Gráfico grande -->
-  <div class="flex-1">
-    <app-horizon-card
-      [cardTitle]="'Sales by Insurer' | translate"
-      cardIconPath="/icons/chart-pie.svg"
-      cardTitleClasses="sm:text-xl"
-      customClasses="p-4 h-full"
-    >
-      <app-vertical-bar-chart
-        [barChartTitle]="'Sales by Insurer' | translate"
-        [barChartLabels]="[
-          'Best Doctors',
-          'Metlife',
-          'Mapfre',
-          'La Positiva',
-          'Pacifico',
-          'Rimac',
-          'Salud S.A',
-          'VUMI',
-        ]"
-        [barChartData]="[
-          2980123, 3123123, 2342342, 1889233, 2342342, 1231231, 876876, 234234,
-        ]"
-        barChartHeightChart="38vh"
-      >
-      </app-vertical-bar-chart>
-    </app-horizon-card>
-  </div>
-
-  <!-- Contenedor para gráficos pequeños -->
-  <div class="flex flex-col gap-4 flex-shrink-0 w-full sm:w-1/3">
-    <!-- Gráfico pequeño 1 -->
+  <div class="flex flex-col sm:flex-row gap-4">
+    <!-- Gráfico grande -->
     <div class="flex-1">
       <app-horizon-card
-        [cardTitle]="'Sales by Branch' | translate"
-        cardTitleClasses="text-xs text-white"
-        cardIconPath="/icons/chart-pie.svg"
-        cardIconClass="p-1 rounded-[16px] text-primary bg-[#F4F7FE]"
-        customClasses="bg-primary-secondary-gradient p-1 h-full"
+        [cardTitle]="{
+          titleText: 'Sales by Insurer' | translate,
+          titleClasses: 'sm:text-xl',
+        }"
+        [cardIcon]="{
+          iconPath: '/icons/chart-pie.svg',
+        }"
+        customClasses="bg-white p-4 h-full"
       >
         <app-vertical-bar-chart
-          [barChartTitle]="'Sales by Branch' | translate"
-          [barChartColors]="['rgba(255, 111, 97, 1)', 'rgba(255, 204, 0, 1)']"
-          [barChartLabels]="['Asistencia medica', 'Aseguramiento Vehículos', 'Vida en grupo', 'Responsabilidad Civil', 'Vida Individual']"
-          [barChartData]="[186891, 122544, 128398, 74184, 38765]"
-          [displayDataLabels]="false"
-          [shouldSplitLabels]="true"
-          [barChartLabelsSize]="9"
-          barChartHeightChart="13vh"
-          textColorChart="white"
+          [barChart]="{
+            chartTitle: 'Sales by Insurer' | translate,
+            chartLabels: [
+              'Best Doctors',
+              'Metlife',
+              'Mapfre',
+              'La Positiva',
+              'Pacifico',
+              'Rimac',
+              'Salud S.A',
+              'VUMI',
+            ],
+            chartData: [
+              2980123, 3123123, 2342342, 1889233, 2342342, 1231231, 876876,
+              234234,
+            ],
+            chartHeight: '38vh',
+            chartColors: ['rgba(255, 111, 97, 1)', 'rgba(0, 133, 194, 1)'],
+          }"
         >
         </app-vertical-bar-chart>
       </app-horizon-card>
     </div>
 
-    <!-- Gráfico pequeño 2 -->
-    <div class="flex-1">
-      <app-horizon-card
-        [cardTitle]="'Sales by Agent' | translate"
-        cardIconPath="/icons/chart-pie.svg"
-        cardIconClass="p-1 rounded-[16px]"
-        cardTitleClasses="sm:text-xs"
-        customClasses="p-1 h-full"
-      >
-        <app-pie-chart
-          [pieChartTitle]="'Sales by Agent' | translate"
-          [pieChartLabels]="[ 'Paez Patricio', 'Valencia Fernanda', 'Dominguez Pedro', 'Sanchez Ricardo', 'Jaramillo Amparo']"
-          [pieChartData]="[410063, 377526, 319518, 277840, 237435]"
-          [pieChartColors]="['rgba(0, 133, 194, 1)', 'rgba(0, 74, 173, 1)']"
-          pieChartHeightChart="20vh"
-          textColorChart="white"
+    <!-- Contenedor para gráficos pequeños -->
+    <div class="flex flex-col gap-4 flex-shrink-0 w-full sm:w-1/3">
+      <!-- Gráfico pequeño 1 -->
+      <div class="flex-1">
+        <app-horizon-card
+          [cardTitle]="{
+            titleText: 'Sales by Branch' | translate,
+            titleClasses: 'sm:text-xs text-white',
+          }"
+          [cardIcon]="{
+            iconPath: '/icons/chart-pie.svg',
+            iconClasses: 'p-1 rounded-[16px] text-primary bg-[#F4F7FE]',
+          }"
+          customClasses="bg-white bg-primary-secondary-gradient p-1 h-full"
         >
-        </app-pie-chart>
-      </app-horizon-card>
+          <app-vertical-bar-chart
+            [barChart]="{
+              chartTitle: 'Sales by Branch' | translate,
+              chartLabels: [
+                'Asistencia medica',
+                'Aseguramiento Vehículos',
+                'Vida en grupo',
+                'Responsabilidad Civil',
+                'Vida Individual',
+              ],
+              chartData: [186891, 122544, 128398, 74184, 38765],
+
+              chartHeight: '13vh',
+              textColorChart: 'white',
+              chartColors: ['rgba(255, 111, 97, 1)', 'rgba(255, 204, 0, 1)'],
+
+              displayDataLabels: false,
+              shouldSplitLabels: true,
+              chartLabelsSize: 9,
+            }"
+          >
+          </app-vertical-bar-chart>
+        </app-horizon-card>
+      </div>
+
+      <!-- Gráfico pequeño 2 -->
+      <div class="flex-1">
+        <app-horizon-card
+          [cardTitle]="{
+            titleText: 'Sales by Agent' | translate,
+            titleClasses: 'sm:text-xs',
+          }"
+          [cardIcon]="{
+            iconPath: '/icons/chart-pie.svg',
+            iconClasses: 'p-1 rounded-[16px]',
+          }"
+          customClasses="bg-white p-1 h-full"
+        >
+          <app-pie-chart
+            [pieChart]="{
+              chartTitle: 'Sales by Agent' | translate,
+              chartLabels: [
+                'Paez Patricio',
+                'Valencia Fernanda',
+                'Dominguez Pedro',
+                'Sanchez Ricardo',
+                'Jaramillo Amparo',
+              ],
+              chartData: [410063, 377526, 319518, 277840, 237435],
+
+              chartColors: ['rgba(0, 133, 194, 1)', 'rgba(0, 74, 173, 1)'],
+              chartHeight: '20vh',
+              textColorChart: 'white',
+
+              displayDataLabels: true
+            }"
+          >
+          </app-pie-chart>
+        </app-horizon-card>
+      </div>
     </div>
   </div>
-</div>
 
+  <div class="flex flex-col sm:flex-row gap-6">
+    <app-card-list
+      class="w-full sm:w-1/3"
 
-
-<div class="flex flex-col sm:flex-row  gap-4">
-
+      [cardTitle]="{
+        titleText: 'Users' | translate,
+        titleClasses: 'sm:text-sm font-medium',
+      }"
+      [cardIcon]="{
+        iconPath: '/icons/users.svg',
+      }"
+      horizonCardCustomClasses="bg-white"
+      [items]="users"
+    ></app-card-list>
+  </div>
 </div>

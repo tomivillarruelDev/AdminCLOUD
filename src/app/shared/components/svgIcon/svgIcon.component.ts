@@ -5,7 +5,6 @@ import {
   Component,
   inject,
   input,
-  Input,
   OnChanges,
 } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
@@ -18,7 +17,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
     <div
       class="svg-icon"
       [innerHTML]="svgContent"
-      [ngClass]="{ 'flip-horizontal': isHovered() }"
+      [ngClass]="[svgSizeClass(), isHovered() ? 'flip-horizontal' : '']"
     ></div>
   `,
   styleUrl: './svgIcon.component.css',
@@ -27,6 +26,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 export class SvgIconComponent implements OnChanges {
   public isHovered = input<boolean>(false);
   public iconPath = input.required<string>();
+  public svgSizeClass = input<string>('h-6 w-6');
 
   public svgContent: SafeHtml | null = null;
 

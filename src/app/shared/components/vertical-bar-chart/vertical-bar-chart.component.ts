@@ -10,8 +10,10 @@ import { ChartConfiguration, ChartOptions, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { Chart } from 'chart.js';
-import { MenuService } from '@shared/services/menu.service';
 import { AnimationSpec } from 'chart.js';
+
+import { MenuService } from '@shared/services/menu.service';
+import { BarChart } from '@shared/interfaces';
 
 @Component({
   selector: 'app-vertical-bar-chart',
@@ -25,18 +27,7 @@ export class VerticalBarChartComponent {
   public barChartType: ChartType = 'bar';
   public barChartLegend = false;
 
-  public barChartTitle = input.required<string>();
-  public barChartLabels = input.required<string[]>();
-  public barChartData = input.required<number[]>();
-  public barChartHeightChart = input<string>();
-  public textColorChart = input<string>('rgba(0, 0, 0, 0.8)');
-  public barChartColors = input<string[]>([
-    'rgba(255, 111, 97, 1)',
-    'rgba(0, 133, 194, 1)',
-  ]);
-  public displayDataLabels = input<boolean>(true);
-  public shouldSplitLabels = input<boolean>(false);
-  public barChartLabelsSize = input<number>(10);
+  public barChart = input.required<BarChart>();
 
   private menuService = inject(MenuService);
 
@@ -49,7 +40,7 @@ export class VerticalBarChartComponent {
   }
 
   public chartData = computed<ChartConfiguration['data']>(() => ({
-    labels: this.barChartLabels(),
+    labels: this.barChart().chartLabels,
     datasets: [this.createDataset()],
   }));
 
@@ -62,8 +53,8 @@ export class VerticalBarChartComponent {
   }));
 
   private createDataset = computed(() => ({
-    label: this.barChartTitle(),
-    data: this.barChartData(),
+    label: this.barChart().chartTitle,
+    data: this.barChart().chartData,
     backgroundColor: this.createGradient(),
     borderColor: 'rgba(0, 0, 0, 0.1)',
     borderWidth: 1,
@@ -86,8 +77,8 @@ export class VerticalBarChartComponent {
         chartArea.right,
         chartArea.bottom
       );
-      gradient.addColorStop(0, this.barChartColors()[0]);
-      gradient.addColorStop(1, this.barChartColors()[1]);
+      gradient.addColorStop(0, this.barChart().chartColors[0]);
+      gradient.addColorStop(1, this.barChart().chartColors[1]);
 
       return gradient;
     };
@@ -103,15 +94,17 @@ export class VerticalBarChartComponent {
       grid: { display: false },
       ticks: {
         font: {
-          size: this.barChartLabelsSize(),
+          size: this.barChart().chartLabelsSize || 10,
           family: 'Poppins',
           weight: 600,
         },
-        color: this.textColorChart(),
+        color: this.barChart().textColorChart || 'rgba(0, 0, 0, 0.8)',
         callback: (value: string | number, index: number) =>
-          this.shouldSplitLabels()
-            ? this.splitLabel(this.barChartLabels()[index] || value.toString())
-            : this.barChartLabels()[index] || value.toString(),
+          this.barChart().shouldSplitLabels
+            ? this.splitLabel(
+                this.barChart().chartLabels[index] || value.toString()
+              )
+            : this.barChart().chartLabels[index] || value.toString(),
         maxRotation: 0,
       },
     };
@@ -124,7 +117,7 @@ export class VerticalBarChartComponent {
       grid: { display: false },
       ticks: {
         font: { size: 9, family: 'Poppins' },
-        color: this.textColorChart(),
+        color: this.barChart().textColorChart || 'rgba(0, 0, 0, 0.8)',
         callback: (value: number | string) =>
           typeof value === 'number' ? '$' + value.toLocaleString() : value,
       },
@@ -144,8 +137,10 @@ export class VerticalBarChartComponent {
 
   private createDataLabelsOptions() {
     return {
-      display: this.displayDataLabels() || this.isMobile,
-      color: this.isMobile ? '#F3F4F6' : this.textColorChart(),
+      display: this.barChart().displayDataLabels || this.isMobile,
+      color: this.isMobile
+        ? '#F3F4F6'
+        : this.barChart().textColorChart || 'rgba(0, 0, 0, 0.8)',
       anchor: this.isMobile ? ('center' as const) : ('end' as const),
       align: this.isMobile ? ('center' as const) : ('top' as const),
       font: { size: this.isMobile ? 8 : 10, family: 'Poppins' },

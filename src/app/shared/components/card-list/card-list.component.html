@@ -1,0 +1,53 @@
+<app-horizon-card
+  [cardTitle]="cardTitle()"
+  [cardIcon]="cardIcon()"
+  [customClasses]="horizonCardCustomClasses()"
+>
+  <!-- List Content -->
+  <ul class="divide-y divide-gray-200">
+    <li
+      *ngFor="let item of items()"
+      class="animate__animated animate__fadeInUp"
+    >
+      <div
+        class="animated-shrink flex items-center justify-between p-3 hover:bg-gray-50 transition duration-150 ease-in-out"
+      >
+        <div class="flex items-center space-x-4">
+          @if (item.icon) {
+            <app-svg-icon
+              class="mr-3"
+              [svgSizeClass]="'w-4 h-4'"
+              iconPath="/icons/user.svg"
+            ></app-svg-icon>
+          } @else {
+            <div
+              class="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-r from-blue-100 to-blue-300 text-primary font-bold shadow"
+            >
+              <!-- Iniciales -->
+            </div>
+          }
+
+          <p class="text-xs font-medium text-gray-800">
+            {{ item.text }}
+          </p>
+        </div>
+
+        @if (item.status) {
+          <span
+            class="flex items-center justify-center w-24 h-8 rounded-full text-xxs font-semibold border"
+            [ngClass]="{
+              'bg-secondary/10 text-primary border-primary/50':
+                item.status === 'Success',
+              'bg-quaternary/10 text-yellow-600 border-quaternaryWarning/50':
+                item.status === 'Warning',
+              'bg-tertiary/10 text-tertiaryDanger border-tertiaryDanger/50':
+                item.status === 'Error',
+            }"
+          >
+            {{ getStatusText(item.status) | translate }}
+          </span>
+        }
+      </div>
+    </li>
+  </ul>
+</app-horizon-card>

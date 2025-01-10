@@ -32,7 +32,12 @@
   "Incorrect Password": "The password is incorrect. Please check it again.",
   "Do you have an account?": "Do you have an account?",
   "Log In": "Log In",
-  
+
+  "Users": "Users",
+  "Connected": "Connected",
+  "Disconnected": "Disconnected",
+  "Busy": "Busy",
+
   "English": "English",
   "Spanish": "Spanish"
 }

@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+
 import { SvgIconComponent } from '@shared/components';
+import { Icon, Title } from '@shared/interfaces';
 
 @Component({
   selector: 'app-horizon-card',
@@ -13,8 +15,7 @@ import { SvgIconComponent } from '@shared/components';
 export class HorizonCardComponent {
   public customClasses = input<string>('');
 
-  public cardTitle = input.required<string>();
-  public cardTitleClasses = input<string>('text-[#1B254B]');
-  public cardIconPath = input.required<string>();
-  public cardIconClass = input<string>('p-2 rounded-[20px]');
+  public cardTitle = input<Title>();
+
+  public cardIcon = input<Icon>();
 }

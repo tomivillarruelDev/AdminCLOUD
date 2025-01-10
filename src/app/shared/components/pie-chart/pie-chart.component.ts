@@ -6,11 +6,18 @@ import {
   inject,
   input,
 } from '@angular/core';
-import { ChartConfiguration, ChartData, ChartOptions, ChartType } from 'chart.js';
+import {
+  ChartConfiguration,
+  ChartData,
+  ChartOptions,
+  ChartType,
+} from 'chart.js';
 import { Chart } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+
 import { MenuService } from '@shared/services/menu.service';
+import { BarChart } from '@shared/interfaces';
 
 @Component({
   selector: 'app-pie-chart',
@@ -23,16 +30,7 @@ import { MenuService } from '@shared/services/menu.service';
 export class PieChartComponent {
   public pieChartType: ChartType = 'pie';
 
-  public pieChartTitle = input.required<string>();
-  public pieChartLabels = input.required<string[]>();
-  public pieChartData = input.required<number[]>();
-  public pieChartHeightChart = input<string>();
-  public pieChartColors = input<string[]>([
-    'rgba(255, 111, 97, 1)',
-    'rgba(0, 133, 194, 1)',
-  ]);
-  public displayDataLabels = input<boolean>(true);
-  public textColorChart = input<string>('rgba(0, 0, 0, 0.8)');
+  public pieChart = input.required<BarChart>();
 
   private menuService = inject(MenuService);
 
@@ -45,7 +43,7 @@ export class PieChartComponent {
   }
 
   public chartData = computed<ChartData<'pie'>>(() => ({
-    labels: this.pieChartLabels(),
+    labels: this.pieChart().chartLabels,
     datasets: [this.createDataset()],
   }));
 
@@ -56,7 +54,7 @@ export class PieChartComponent {
   }));
 
   private createDataset = computed(() => ({
-    data: this.pieChartData(),
+    data: this.pieChart().chartData,
     backgroundColor: this.createRadialGradient(),
     borderColor: 'transparent',
     borderWidth: 0,
@@ -69,11 +67,22 @@ export class PieChartComponent {
 
       const centerX = (chartArea.left + chartArea.right) / 2;
       const centerY = (chartArea.top + chartArea.bottom) / 2;
-      const radius = Math.min(chartArea.right - chartArea.left, chartArea.bottom - chartArea.top) / 2;
+      const radius =
+        Math.min(
+          chartArea.right - chartArea.left,
+          chartArea.bottom - chartArea.top
+        ) / 2;
 
-      const gradient = ctx.createRadialGradient(centerX, centerY, radius * 0.3, centerX, centerY, radius);
-      gradient.addColorStop(0, this.pieChartColors()[1]);
-      gradient.addColorStop(1, this.pieChartColors()[0]);
+      const gradient = ctx.createRadialGradient(
+        centerX,
+        centerY,
+        radius * 0.3,
+        centerX,
+        centerY,
+        radius
+      );
+      gradient.addColorStop(0, this.pieChart().chartColors[1]);
+      gradient.addColorStop(1, this.pieChart().chartColors[0]);
 
       return gradient;
     };
@@ -88,13 +97,13 @@ export class PieChartComponent {
   private createLegendOptions() {
     return {
       display: true,
-      position: 'right' as const, // Cambia el tipo de 'string' a un literal de tipo
-      align: 'center' as const, // Cambia el tipo de 'string' a un literal de tipo
+      position: 'right' as const,
+      align: 'center' as const,
       labels: {
         boxWidth: 4,
         boxHeight: 4,
         font: { size: this.isMobile ? 9 : 10, family: 'Poppins' },
-        pointStyle: 'circle' as const, // Cambia el tipo de 'string' a un literal de tipo
+        pointStyle: 'circle' as const,
         usePointStyle: true,
       },
 
@@ -105,10 +114,12 @@ export class PieChartComponent {
 
   private createDataLabelsOptions() {
     return {
-      display: this.displayDataLabels() || this.isMobile,
-      color: this.isMobile ? '#F3F4F6' : this.textColorChart(),
-      anchor: 'center' as const, // Cambia el tipo de 'string' a un literal de tipo
-      align: 'center' as const, // Cambia el tipo de 'string' a un literal de tipo
+      display: this.pieChart().displayDataLabels || this.isMobile,
+      color: this.isMobile
+        ? '#F3F4F6'
+        : this.pieChart().textColorChart || 'rgba(0, 0, 0, 0.8)',
+      anchor: 'center' as const,
+      align: 'center' as const,
       font: { size: this.isMobile ? 8 : 10, family: 'Poppins' },
       formatter: this.dataLabelFormatter,
     };

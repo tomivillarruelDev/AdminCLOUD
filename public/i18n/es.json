@@ -16,7 +16,7 @@
   "Sales": "Ventas",
   "Quotations": "Cotizaciones",
   "Options": "Opciones",
-  
+
   "First Name": "Nombre",
   "Last Name": "Apellido",
   "Gender": "Género",
@@ -32,6 +32,11 @@
   "Incorrect Password": "Tu contraseña no es correcta. Vuelve a comprobarla.",
   "Do you have an account?": "¿Tienes una cuenta?",
   "Log In": "Inicia Sesión",
+
+  "Users": "Usuarios",
+  "Connected": "Conectado",
+  "Disconnected": "Desconectado",
+  "Busy": "Ocupado",
 
   "English": "Ingles",
   "Spanish": "Español"
