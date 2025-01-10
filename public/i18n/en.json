@@ -7,6 +7,11 @@
   "Control Panel": "Control Panel",
   "Contacts": "Contacts",
   "Companies": "Companies",
+  "Company": "Company",
+  "Agents": "Agents",
+  "Agent": "Agent",
+  "#Policy": "#Policy",
+  "Policy": "Policy",
   "Policies": "Policies",
   "Reports": "Reports",
   "Claims": "Claims",
@@ -41,6 +46,13 @@
   "Your Balance": "Your Balance",
   "Policies of this month": "Policies of this month",
 
+  "Latest policies": "Latest policies",
+  "Transactions": "Transactions",
+
   "English": "English",
-  "Spanish": "Spanish"
+  "Spanish": "Spanish",
+
+  "Previous": "Previous",
+  "Next": "Next",
+  "of": "of"
 }

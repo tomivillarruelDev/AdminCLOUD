@@ -13,3 +13,7 @@ export * from './card-list/card-list.component';
 export * from './language-selector/language-selector.component';
 
 export * from './statistic-widget/statistic-widget.component';
+
+export * from './tables/tables.component';
+
+export * from './bounce-rate/bounce-rate.component';
