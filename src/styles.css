@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  font-family: 'Assistant', sans-serif;
+  font-family: "Poppins", serif;
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;

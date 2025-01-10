@@ -1,5 +1,27 @@
-<div class="flex flex-col gap-y-6">
-  <app-language-selector></app-language-selector>
+<div class="flex flex-col gap-y-4">
+  <!-- <app-language-selector></app-language-selector> -->
+
+  <app-statistic-widget
+    [widgets]="[
+      {
+        iconPath: '/icons/policy.svg',
+        title: 'Policies of this month',
+        value: 222,
+      },
+      {
+        iconPath: '/icons/sales-chart.svg',
+        title: 'Sales',
+        value: 57402,
+        amount: true,
+      },
+      {
+        iconPath: '/icons/balance.svg',
+        title: 'Your Balance',
+        value: 7200,
+        amount: true,
+      },
+    ]"
+  ></app-statistic-widget>
 
   <div class="flex flex-col sm:flex-row gap-4">
     <!-- Gráfico grande -->
@@ -12,7 +34,7 @@
         [cardIcon]="{
           iconPath: '/icons/chart-pie.svg',
         }"
-        customClasses="bg-white p-4 h-full"
+        customClasses="bg-white h-full"
       >
         <app-vertical-bar-chart
           [barChart]="{
@@ -31,7 +53,7 @@
               2980123, 3123123, 2342342, 1889233, 2342342, 1231231, 876876,
               234234,
             ],
-            chartHeight: '38vh',
+            chartHeight: 'h-[23vh] sm:h-[42vh] w-full',
             chartColors: ['rgba(255, 111, 97, 1)', 'rgba(0, 133, 194, 1)'],
           }"
         >
@@ -40,7 +62,7 @@
     </div>
 
     <!-- Contenedor para gráficos pequeños -->
-    <div class="flex flex-col gap-4 flex-shrink-0 w-full sm:w-1/3">
+    <div class="flex flex-col gap-2 flex-shrink-0 w-full sm:w-1/3">
       <!-- Gráfico pequeño 1 -->
       <div class="flex-1">
         <app-horizon-card
@@ -66,7 +88,7 @@
               ],
               chartData: [186891, 122544, 128398, 74184, 38765],
 
-              chartHeight: '13vh',
+              chartHeight: 'h-[23vh] sm:h-[16vh] h-full',
               textColorChart: 'white',
               chartColors: ['rgba(255, 111, 97, 1)', 'rgba(255, 204, 0, 1)'],
 
@@ -104,11 +126,11 @@
               ],
               chartData: [410063, 377526, 319518, 277840, 237435],
 
+              chartHeight: 'h-[23vh] sm:h-[26vh] h-full',
               chartColors: ['rgba(0, 133, 194, 1)', 'rgba(0, 74, 173, 1)'],
-              chartHeight: '20vh',
               textColorChart: 'white',
 
-              displayDataLabels: true
+              displayDataLabels: true,
             }"
           >
           </app-pie-chart>
@@ -120,7 +142,6 @@
   <div class="flex flex-col sm:flex-row gap-6">
     <app-card-list
       class="w-full sm:w-1/3"
-
       [cardTitle]="{
         titleText: 'Users' | translate,
         titleClasses: 'sm:text-sm font-medium',

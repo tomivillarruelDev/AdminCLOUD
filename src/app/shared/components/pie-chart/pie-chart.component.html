@@ -1,9 +1,8 @@
-<div>
+<div [ngClass]="pieChart().chartHeight">
   <canvas
     baseChart
     [data]="chartData()"
     [type]="pieChartType"
     [options]="pieChartOptions()"
-    [ngStyle]="{ height: pieChart().chartHeight }"
   ></canvas>
 </div>

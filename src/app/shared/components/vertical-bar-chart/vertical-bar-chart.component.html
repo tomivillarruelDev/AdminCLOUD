@@ -1,11 +1,10 @@
-<div>
+<div [ngClass]="barChart().chartHeight">
   <canvas
     baseChart
     [data]="chartData()"
     [options]="barChartOptions()"
     [type]="barChartType"
     [legend]="barChartLegend"
-    [ngStyle]="{ height: barChart().chartHeight }"
   >
   </canvas>
 </div>

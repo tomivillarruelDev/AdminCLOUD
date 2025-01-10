@@ -7,10 +7,11 @@ import { MenuService } from '@shared/services/menu.service';
 import {
   LanguageSelectorComponent,
   VerticalBarChartComponent,
+  HorizonCardComponent,
+  PieChartComponent,
+  CardListComponent,
+  StatisticWidgetComponent,
 } from '@shared/components';
-import { HorizonCardComponent } from '@shared/components';
-import { PieChartComponent } from '@shared/components/pie-chart/pie-chart.component';
-import { CardListComponent } from '@shared/components/card-list/card-list.component';
 import { UserStatus } from '@shared/interfaces';
 
 @Component({
@@ -23,6 +24,7 @@ import { UserStatus } from '@shared/interfaces';
     TranslateModule,
     LanguageSelectorComponent,
     CardListComponent,
+    StatisticWidgetComponent,
   ],
   templateUrl: './control-panel.component.html',
   styleUrl: './control-panel.component.css',
