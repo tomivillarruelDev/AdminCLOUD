@@ -1,8 +1,8 @@
-export interface TablerowData {
+interface TablerowData {
   [key: string]: any;
 }
 
-export interface TableColumn {
+interface TableColumn {
   name: string;
   label: string;
 }
