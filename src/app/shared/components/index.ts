@@ -14,6 +14,6 @@ export * from './language-selector/language-selector.component';
 
 export * from './statistic-widget/statistic-widget.component';
 
-export * from './tables/tables.component';
+export * from './table/table.component';
 
-export * from './bounce-rate/bounce-rate.component';
+export * from './statistics-indicator/statistics-indicator.component';

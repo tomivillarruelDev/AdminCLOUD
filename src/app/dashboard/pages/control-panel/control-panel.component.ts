@@ -11,7 +11,8 @@ import {
   PieChartComponent,
   CardListComponent,
   StatisticWidgetComponent,
-  TablesComponent
+  TableComponent,
+  StatisticsIndicatorComponent 
 } from '@shared/components';
 import { UserStatus } from '@shared/interfaces';
 
@@ -26,7 +27,8 @@ import { UserStatus } from '@shared/interfaces';
     LanguageSelectorComponent,
     CardListComponent,
     StatisticWidgetComponent,
-    TablesComponent
+    TableComponent,
+    StatisticsIndicatorComponent
   ],
   templateUrl: './control-panel.component.html',
   styleUrl: './control-panel.component.css',

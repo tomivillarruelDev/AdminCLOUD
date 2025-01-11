@@ -1,25 +1,30 @@
-<div class="overflow-x-auto">
-  <div
-    class="min-w-screen flex items-center justify-center font-sans overflow-hidden"
-  >
-    <div class="w-full m-2">
-      <div class="bg-white shadow-md rounded">
+<div
+  class="overflow-x-auto shadow-xl scrollable"
+  [ngClass]="table().customClasses"
+>
+  <div class="min-w-screen flex items-center justify-center font-sans">
+    <div class="w-full">
+      <div class="">
         <table class="min-w-max w-full table-auto">
           <thead>
-            <tr
-              class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal"
-            >
+            <tr class="bg-gray-200">
               @for (column of table().columns; track $index) {
-                <th class="py-3 px-6 text-left">
+                <th
+                  class="py-2 px-4 sm:py-2.5 sm:px-5 text-left truncate text-xs sm:text-sm font-medium max-w-xs sm:max-w-md"
+                >
                   {{ column.label | translate }}
                 </th>
               }
               @if (table().actions) {
-                <th class="py-3 px-6 text-center">Actions</th>
+                <th
+                  class="py-2 px-4 sm:py-2.5 sm:px-5 text-center truncate text-xs sm:text-sm font-medium max-w-xs sm:max-w-md"
+                >
+                  Actions
+                </th>
               }
             </tr>
           </thead>
-          <tbody class="text-gray-600 text-xs font-light">
+          <tbody class="text-gray-800 text-xs sm:text-sm font-light">
             @for (row of table().data; track $index; let isEven = $even) {
               <tr
                 class="border-b border-gray-200 hover:bg-gray-100"
@@ -30,27 +35,41 @@
                   track $index;
                   let isFirst = $first
                 ) {
-                  <td class="py-3 px-6 text-left whitespace-nowrap">
+                  <td
+                    class="py-2 px-4 sm:py-2.5 sm:px-5 text-left whitespace-nowrap max-w-xs sm:max-w-md"
+                  >
                     <div class="flex items-center">
-                      <div class="mr-2">
-                        <!-- icon -->
-                      </div>
                       <span
                         [ngClass]="{
                           'font-medium': isFirst,
                           'font-light': !isFirst,
                         }"
                       >
-                        {{ row[column.name] }}
+                        @switch (column.name) {
+                          @case ('amount') {
+                            {{
+                              row[column.name]
+                                | currency: 'ARS' : 'symbol' : '1.2-2'
+                            }}
+                          }
+                          @case ('date') {
+                            {{ row[column.name] | date: 'dd/MM/yyyy' }}
+                          }
+                          @default {
+                            {{ row[column.name] }}
+                          }
+                        }
                       </span>
                     </div>
                   </td>
                 }
                 @if (table().actions) {
-                  <td class="py-3 px-6 text-center">
+                  <td
+                    class="py-2 px-4 sm:py-2.5 sm:px-5 text-center max-w-xs sm:max-w-md"
+                  >
                     <div class="flex item-center justify-center">
                       <div
-                        class="w-4 mr-2 transform hover:text-secondary hover:scale-110"
+                        class="w-4 sm:w-6 transform hover:text-secondary hover:scale-110"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -114,14 +133,15 @@
           </tbody>
         </table>
       </div>
-
       @if (table().paginator) {
         <div class="mt-6 sm:flex sm:items-center sm:justify-between">
-          <div class="text-sm text-gray-500">
-            {{ 'Page' | translate }} <span class="font-medium text-gray-700">1 {{ 'of' | translate }} 10</span>
+          <div class="text-xs sm:text-sm text-gray-500">
+            {{ 'Page' | translate }}
+            <span class="font-medium text-gray-700"
+              >1 {{ 'of' | translate }} 10</span
+            >
           </div>
-
-          <div class="flex items-center mt-4 gap-x-4 sm:mt-0">
+          <div class="flex items-center mt-4 gap-x-2 sm:mt-0 sm:gap-x-4">
             <a
               href="#"
               class="flex items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md sm:w-auto gap-x-2 hover:bg-gray-100"
@@ -141,7 +161,7 @@
                 />
               </svg>
 
-              <span> {{ 'Previous' | translate}} </span>
+              <span> {{ 'Previous' | translate }} </span>
             </a>
 
             <a

@@ -10,7 +10,7 @@
       class="animate__animated animate__fadeInUp"
     >
       <div
-        class="animated-shrink flex items-center justify-between p-3 hover:bg-gray-50 transition duration-150 ease-in-out"
+        class="animated-shrink flex items-center justify-between py-3 hover:bg-gray-50 transition duration-150 ease-in-out"
       >
         <div class="flex items-center space-x-4">
           <div
@@ -27,19 +27,19 @@
             }
           </div>
 
-          <p class="text-xs font-semibold">
+          <p class="text-xs font-ligth">
             {{ item.text }}
           </p>
         </div>
 
         @if (item.status) {
           <span
-            class="flex items-center justify-center w-24 h-8 rounded-full text-xxs font-semibold border"
+            class="flex items-center justify-center w-20 h-7 rounded-full text-xxs font-medium border"
             [ngClass]="{
-              'text-primary border-primary/50': item.status === 'Success',
-              'text-yellow-600 border-quaternaryWarning/50':
+              'text-primary bg-primary/20': item.status === 'Success',
+              'text-yellow-600 bg-quaternaryWarning/20':
                 item.status === 'Warning',
-              'text-tertiaryDanger border-tertiaryDanger/50':
+              'text-tertiaryDanger bg-tertiaryDanger/20':
                 item.status === 'Error',
             }"
           >

@@ -28,7 +28,7 @@
     <div class="flex-1">
       <app-horizon-card
         [cardTitle]="{
-          titleText: 'Sales by Insurer' | translate,
+          titleText: 'Sales by Insurer',
           titleClasses: 'sm:text-xl',
         }"
         [cardIcon]="{
@@ -67,7 +67,7 @@
       <div class="flex-1">
         <app-horizon-card
           [cardTitle]="{
-            titleText: 'Sales by Branch' | translate,
+            titleText: 'Sales by Branch',
             titleClasses: 'sm:text-xs text-white',
           }"
           [cardIcon]="{
@@ -105,7 +105,7 @@
       <div class="flex-1">
         <app-horizon-card
           [cardTitle]="{
-            titleText: 'Sales by Agent' | translate,
+            titleText: 'Sales by Agent',
             titleClasses: 'sm:text-xs',
           }"
           [cardIcon]="{
@@ -139,11 +139,11 @@
     </div>
   </div>
 
-  <div class="flex flex-col sm:flex-row gap-6">
+  <div class="flex flex-col sm:flex-row gap-2">
     <app-card-list
-      class="w-full sm:w-1/3"
+      class="w-full"
       [cardTitle]="{
-        titleText: 'Users' | translate,
+        titleText: 'Users',
         titleClasses: 'sm:text-sm font-medium',
       }"
       [cardIcon]="{
@@ -152,5 +152,106 @@
       horizonCardCustomClasses="bg-white"
       [items]="users"
     ></app-card-list>
+
+    <app-horizon-card
+      [cardTitle]="{
+        titleText: 'Latest policies',
+        titleClasses: 'sm:text-sm font-medium',
+      }"
+      [cardIcon]="{
+        iconPath: '/icons/policy.svg',
+      }"
+      customClasses="bg-white h-full"
+    >
+      <app-table
+        [table]="{
+          columns: [
+            { name: 'company', label: 'Company' },
+            { name: 'agent', label: 'Agent' },
+            { name: 'policy_number', label: '#Policy' },
+          ],
+          data: [
+            {
+              company: 'Allianz',
+              agent: 'Vega Isabel',
+              policy_number: '123491',
+            },
+            {
+              company: 'Generali',
+              agent: 'Castillo Felipe',
+              policy_number: '123492',
+            },
+            {
+              company: 'Zurich',
+              agent: 'Mendez Claudia',
+              policy_number: '123493',
+            },
+            { company: 'AXA', agent: 'Pena Oscar', policy_number: '123494' },
+            {
+              company: 'MetLife',
+              agent: 'Cabrera Andrea',
+              policy_number: '123495',
+            },
+            {
+              company: 'Chubb',
+              agent: 'Ramos Enrique',
+              policy_number: '123496',
+            },
+            { company: 'AIG', agent: 'Aguilar Paula', policy_number: '123497' },
+            {
+              company: 'Mapfre',
+              agent: 'Gomez Juan',
+              policy_number: '123498',
+            },
+            {
+              company: 'La Positiva',
+              agent: 'Hernandez Maria',
+              policy_number: '123499',
+            },
+            {
+              company: 'Pacifico',
+              agent: 'Diaz Luis',
+              policy_number: '123500',
+            },
+          ],
+          customClasses: 'h-[30vh] sm:h-[38vh]',
+        }"
+      ></app-table>
+    </app-horizon-card>
+
+    <app-horizon-card
+      [cardTitle]="{
+        titleText: 'Transactions',
+        titleClasses: 'sm:text-sm font-medium',
+      }"
+      [cardIcon]="{
+        iconPath: '/icons/handshake.svg',
+      }"
+      customClasses="bg-white h-full"
+      [statisticsIndicator]="true"
+    >
+      <app-table
+        [table]="{
+          columns: [
+            { name: 'insured', label: 'Insured' },
+            { name: 'date', label: 'Date' },
+            { name: 'amount', label: 'Amount' },
+          ],
+          data: [
+            { insured: 'Juan Pérez', date: '2023-01-15', amount: 15000 },
+            { insured: 'María García', date: '2023-02-20', amount: 20999 },
+            { insured: 'Carlos Rodríguez', date: '2023-03-10', amount: 17550 },
+            { insured: 'Ana Fernández', date: '2023-04-05', amount: 22000 },
+            { insured: 'Luis Martínez', date: '2023-05-25', amount: 18010 },
+            { insured: 'Sofía López', date: '2023-06-15', amount: 19522 },
+            { insured: 'Pedro González', date: '2023-07-30', amount: 21000 },
+            { insured: 'Laura Ramírez', date: '2023-08-10', amount: 19000 },
+            { insured: 'Jorge Sánchez', date: '2023-09-05', amount: 20000 },
+            { insured: 'Patricia Torres', date: '2023-10-25', amount: 18500 },
+          ],
+          customClasses: 'h-[30vh] sm:h-[38vh]',
+        }"
+      ></app-table>
+    </app-horizon-card>
   </div>
 </div>

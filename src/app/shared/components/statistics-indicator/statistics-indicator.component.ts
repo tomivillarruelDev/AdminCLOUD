@@ -1,15 +1,21 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, OnInit, ChangeDetectorRef, OnDestroy } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnInit,
+  ChangeDetectorRef,
+  OnDestroy,
+} from '@angular/core';
 
 @Component({
-  selector: 'app-bounce-rate',
+  selector: 'app-statistics-indicator',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './bounce-rate.component.html',
-  styleUrl: './bounce-rate.component.css',
+  templateUrl: './statistics-indicator.component.html',
+  styleUrl: './statistics-indicator.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BounceRateComponent implements OnInit, OnDestroy {
+export class StatisticsIndicatorComponent implements OnInit, OnDestroy {
   public currentRateIndex = 0;
   public rates = [{ icon: '', value: '' }];
   private intervalId!: ReturnType<typeof setInterval>;
@@ -30,7 +36,7 @@ export class BounceRateComponent implements OnInit, OnDestroy {
       this.currentRateIndex = this.getRandomRateIndex();
       this.updateRates();
       this.cdr.detectChanges();
-    }, 1000);
+    }, 120000);
   }
 
   private clearRateUpdateInterval(): void {
@@ -62,7 +68,7 @@ export class BounceRateComponent implements OnInit, OnDestroy {
       const percentage = this.getRandomPercentage();
       return {
         icon: this.getIcon(percentage),
-        value: `${percentage}%`
+        value: `${percentage}%`,
       };
     });
   }
