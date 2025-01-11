@@ -5,7 +5,7 @@
   <div class="min-w-screen flex items-center justify-center font-sans">
     <div class="w-full">
       <div class="">
-        <table class="min-w-max w-full table-auto">
+        <table class="min-w-max w-full table-auto animate__animated animate__fadeIn">
           <thead>
             <tr class="bg-gray-200">
               @for (column of table().columns; track $index) {
@@ -27,7 +27,7 @@
           <tbody class="text-gray-800 text-xs sm:text-sm font-light">
             @for (row of table().data; track $index; let isEven = $even) {
               <tr
-                class="border-b border-gray-200 hover:bg-gray-100"
+                class="border-b border-gray-200 hover:bg-gray-100 animate__animated animate__fadeInUp"
                 [ngClass]="!isEven ? 'bg-gray-50' : ''"
               >
                 @for (

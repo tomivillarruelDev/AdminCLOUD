@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
+import { TranslatePipe } from '@ngx-translate/core';
+
 import { SvgIconComponent } from '@shared/components';
-import { Icon, Title } from '@shared/interfaces';
 import { StatisticsIndicatorComponent } from '../statistics-indicator/statistics-indicator.component';
-import { TranslateModule } from '@ngx-translate/core';
+import { Icon, Title } from '@shared/interfaces';
 
 @Component({
   selector: 'app-horizon-card',
@@ -13,7 +14,7 @@ import { TranslateModule } from '@ngx-translate/core';
     CommonModule,
     SvgIconComponent,
     StatisticsIndicatorComponent,
-    TranslateModule,
+    TranslatePipe,
   ],
   templateUrl: './horizon-card.component.html',
   styleUrl: './horizon-card.component.css',

@@ -46,8 +46,8 @@
   "Log In": "Inicia Sesión",
 
   "Users": "Usuarios",
-  "Connected": "Conectado",
-  "Disconnected": "Desconectado",
+  "Online": "En linea",
+  "Offline": "Offline",
   "Busy": "Ocupado",
 
   "Your Balance": "Tu Saldo",
@@ -58,7 +58,6 @@
 
   "English": "Ingles",
   "Spanish": "Español",
-
 
   "Previous": "Anterior",
   "Next": "Siguiente",

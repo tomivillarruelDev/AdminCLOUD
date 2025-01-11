@@ -12,7 +12,7 @@ import { routes } from '../../../dashboard/dashboard.routes';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
 
 import { CommonModule } from '@angular/common';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslatePipe } from '@ngx-translate/core';
 
 import { filter } from 'rxjs';
 
@@ -22,7 +22,7 @@ import { SvgIconComponent } from '@shared/components';
 @Component({
   selector: 'app-side-menu',
   standalone: true,
-  imports: [RouterModule, CommonModule, TranslateModule, SvgIconComponent],
+  imports: [RouterModule, CommonModule, TranslatePipe, SvgIconComponent],
   templateUrl: './sideMenu.component.html',
   styleUrls: ['./sideMenu.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,

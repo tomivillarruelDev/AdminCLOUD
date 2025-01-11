@@ -140,7 +140,7 @@
   </div>
 
   <div class="flex flex-col sm:flex-row gap-2">
-    <app-card-list
+    <app-user-card-list
       class="w-full"
       [cardTitle]="{
         titleText: 'Users',
@@ -149,9 +149,10 @@
       [cardIcon]="{
         iconPath: '/icons/users.svg',
       }"
-      horizonCardCustomClasses="bg-white h-full"
+      horizonCardCustomClasses="bg-white h-full py-4 px-0"
+      customClasses="h-[30vh] sm:h-[38vh]"
       [items]="users"
-    ></app-card-list>
+    ></app-user-card-list>
 
     <app-horizon-card
       [cardTitle]="{

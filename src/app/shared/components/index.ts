@@ -8,7 +8,7 @@ export * from './svgIcon/svgIcon.component';
 
 export * from './horizon-card/horizon-card.component';
 
-export * from './card-list/card-list.component';
+export * from './user-card-list/user-card-list.component';
 
 export * from './language-selector/language-selector.component';
 

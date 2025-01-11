@@ -13,9 +13,9 @@ import {
 } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 
-import { AuthService } from '../../services/auth.service';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslatePipe } from '@ngx-translate/core';
 
+import { AuthService } from '../../services/auth.service';
 import { LanguageSelectorComponent } from '@shared/components';
 
 @Component({
@@ -25,7 +25,7 @@ import { LanguageSelectorComponent } from '@shared/components';
     CommonModule,
     ReactiveFormsModule,
     RouterModule,
-    TranslateModule,
+    TranslatePipe,
     LanguageSelectorComponent,
   ],
   templateUrl: './sign-up.component.html',

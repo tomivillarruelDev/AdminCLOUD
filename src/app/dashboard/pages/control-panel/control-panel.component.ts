@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslatePipe } from '@ngx-translate/core';
 
 import { MenuService } from '@shared/services/menu.service';
 
@@ -9,10 +9,10 @@ import {
   VerticalBarChartComponent,
   HorizonCardComponent,
   PieChartComponent,
-  CardListComponent,
+  UserCardListComponent,
   StatisticWidgetComponent,
   TableComponent,
-  StatisticsIndicatorComponent 
+  StatisticsIndicatorComponent,
 } from '@shared/components';
 import { UserStatus } from '@shared/interfaces';
 
@@ -23,12 +23,11 @@ import { UserStatus } from '@shared/interfaces';
     HorizonCardComponent,
     VerticalBarChartComponent,
     PieChartComponent,
-    TranslateModule,
+    TranslatePipe,
     LanguageSelectorComponent,
-    CardListComponent,
+    UserCardListComponent,
     StatisticWidgetComponent,
     TableComponent,
-    StatisticsIndicatorComponent
   ],
   templateUrl: './control-panel.component.html',
   styleUrl: './control-panel.component.css',
@@ -41,11 +40,17 @@ export default class ControlPanelComponent {
     return this.menuService.isMobile();
   }
 
-  users = [
-    { text: 'User 1', status: UserStatus.Success },
-    { text: 'User 2', status: UserStatus.Warning },
-    { text: 'User 3', status: UserStatus.Error },
-    { text: 'User 4', status: UserStatus.Success },
-    { text: 'User 5' },
-  ];
+  users = {
+    data: [
+      { name: 'Juan Pérez', status: UserStatus.Online },
+      { name: 'María García', status: UserStatus.Busy },
+      { name: 'Carlos Rodríguez', status: UserStatus.Offline },
+      { name: 'Ana Fernández', status: UserStatus.Online },
+      { name: 'Luis Gómez', status: UserStatus.Busy },
+      { name: 'Sofía Martínez', status: UserStatus.Offline },
+      { name: 'Miguel Torres', status: UserStatus.Online },
+      { name: 'Lucía Ramírez', status: UserStatus.Busy },
+      { name: 'Javier Sánchez', status: UserStatus.Offline },
+    ],
+  };
 }

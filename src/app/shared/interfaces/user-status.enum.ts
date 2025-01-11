@@ -1,5 +1,5 @@
 export enum UserStatus {
-  Success = 'Success',
-  Warning = 'Warning',
-  Error = 'Error'
+  Online = 'Online',
+  Busy = 'Busy',
+  Offline = 'Offline'
 }
