@@ -17,3 +17,7 @@ export * from './statistic-widget/statistic-widget.component';
 export * from './table/table.component';
 
 export * from './statistics-indicator/statistics-indicator.component';
+
+export * from './loader/loader.component'
+
+export * from './not-found/not-found.component'

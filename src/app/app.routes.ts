@@ -12,7 +12,11 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'login',
+    loadChildren: () => import('./shared/components/not-found/not-found.routes').then(r => r.routes),
+  },
+  {
+    path: '**',
+    redirectTo: '404',
     pathMatch: 'full',
   },
 ];

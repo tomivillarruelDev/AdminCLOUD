@@ -1,0 +1,27 @@
+<div
+  class="flex flex-col sm:flex-row h-full justify-around bg-secondary-primary-gradient gap-4 pt-2"
+>
+  <div class="flex flex-col items-center justify-center text-black gap-10">
+    <img
+      src="/logos/adminCLOUD.svg"
+      alt="adminCLOUD"
+      class="h-14 w-40 bg-white px-2.5 rounded-full animate__animated animate__fadeInDown"
+    />
+
+    <div class="flex flex-col items-center justify-center">
+      <p class="m-0 font-semibold text-white animate__animated animate__fadeIn">ERROR</p>
+      <span class="text-[20vh] font-bold text-white animate__animated animate__flash">404</span>
+      <div class="animate__animated animate__fadeIn">
+        <p>Lo sentimos, la página que estás buscando no existe.</p>
+        <a routerLink="/dashboard" class=""
+          >Volver al <span class="text-white font-semibold">Dashboard</span></a
+        >
+      </div>
+
+    </div>
+  </div>
+
+  <div class="flex sm:justify-end sm:items-end animate__animated animate__fadeInUp">
+    <img src="/images/404.png" alt="" class="img-fluid h-[70vh]" />
+  </div>
+</div>

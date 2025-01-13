@@ -5,6 +5,7 @@ import {
   OnInit,
   ChangeDetectorRef,
   OnDestroy,
+  inject,
 } from '@angular/core';
 
 @Component({
@@ -20,7 +21,7 @@ export class StatisticsIndicatorComponent implements OnInit, OnDestroy {
   public rates = [{ icon: '', value: '' }];
   private intervalId!: ReturnType<typeof setInterval>;
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  private cdr = inject(ChangeDetectorRef)
 
   ngOnInit() {
     this.startRateUpdate();

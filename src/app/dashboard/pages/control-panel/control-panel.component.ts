@@ -12,7 +12,6 @@ import {
   UserCardListComponent,
   StatisticWidgetComponent,
   TableComponent,
-  StatisticsIndicatorComponent,
 } from '@shared/components';
 import { UserStatus } from '@shared/interfaces';
 
