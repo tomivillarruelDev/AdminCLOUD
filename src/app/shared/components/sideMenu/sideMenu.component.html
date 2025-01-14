@@ -3,20 +3,20 @@
   'animate__animated animate__fadeInLeft': !isMobile,
 
 }" -->
-<div>
+<div class="md:shadow-md">
   <div
-    class="sm:ml-6 sm:flex sm:w-20 w-full sm:flex-col sm:items-center scrollable-menu"
+    class="md:ml-6 md:flex md:w-20 w-full md:flex-col md:items-center scrollable-menu"
     [ngClass]="{
       'animate__animated animate__fadeInDown': isMobile,
       'menu-overlay': isMenuOverlay,
     }"
   >
     <div
-      class="sm:space-y-20 rounded-md bg-white rounded-b-[20px] sm:roundedrounded-b-[0px]"
+      class="md:space-y-20 rounded-md bg-white rounded-b-[20px] md:roundedrounded-b-[0px]"
     >
-      <div class="flex sm:flex-col flex-row sm:items-center">
+      <div class="flex md:flex-col flex-row md:items-center">
         <div
-          class="sm:fixed z-10 p-5 sm:pb-10 flex justify-between sm:justify-center items-center w-full sm:w-auto sm:bg-white"
+          class="md:fixed z-10 p-5 md:pb-10 flex justify-between md:justify-center items-center w-full md:w-auto md:bg-white"
         >
           <button
             class="hamburger-menu"
@@ -61,15 +61,15 @@
             <img
               src="favicon.svg"
               alt="adminCloud"
-              class="w-8 h-8 fill-current mx-auto sm:mx-0"
+              class="w-8 h-8 fill-current mx-auto md:mx-0"
             />
           </a>
-          <div class="w-6 sm:w-0"></div>
+          <div class="w-6 md:w-0"></div>
         </div>
       </div>
 
       <ul
-        class="menu-items sm:w-full"
+        class="menu-items md:w-full"
         [ngClass]="{
           open: isMenuOpen,
           'animate__animated animate__fadeInUp': isMobile,
@@ -78,7 +78,7 @@
         @for (menuItem of menuItemsData; track $index) {
           <li class="p-3 text-center animate__animated animate__fadeIn" #menuItem>
             <a
-              class="flex sm:flex-col items-center flex-row transition-all hover:text-[#004AAD] text-gray-500"
+              class="flex md:flex-col items-center flex-row transition-all hover:text-[#004AAD] text-gray-500"
               [routerLink]="menuItem.path"
               routerLinkActive="text-primary"
               [class.hovered]="menuItem.isHovered"
@@ -87,12 +87,12 @@
               (click)="isMenuOpen = false"
             >
               <app-svg-icon
-                class="flex sm:m-0 mr-2"
+                class="flex md:m-0 mr-2"
                 [iconPath]="menuItem.data?.['icon']"
                 [isHovered]="menuItem.isHovered"
               ></app-svg-icon>
 
-              <span class="sm:text-xxs text-sm mt-1 text-center">
+              <span class="md:text-xxs text-sm mt-1 text-center">
                 {{ menuItem.title | translate }}
               </span>
             </a>

@@ -1,12 +1,9 @@
 <header></header>
-<main
-  class="grid grid-cols-1 sm:grid-cols-12 gap-4 sm:gap-0 bg-gray-100 sm:py-6"
->
-  <app-side-menu class="col-span-1 sm:col-span-1"></app-side-menu>
+<main class="grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-0 bg-gray-100 md:py-6">
+  <app-side-menu class="col-span-1"></app-side-menu>
 
-  <div class="col-span-1 sm:col-span-11 px-6 scrollable">
+  <div class="col-span-1 md:col-span-10 px-6 md:col-start-3 lg:col-span-11 lg:col-start-2 lg:px-6 scrollable">
     <router-outlet></router-outlet>
   </div>
-
 </main>
 <footer></footer>

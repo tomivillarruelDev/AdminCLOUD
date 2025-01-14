@@ -1,29 +1,31 @@
-<div class="flex flex-col gap-y-4">
+<div class="flex flex-col gap-y-4 pb-6">
   <!-- <app-language-selector></app-language-selector> -->
 
-  <app-statistic-widget
-    [widgets]="[
-      {
-        iconPath: '/icons/policy.svg',
-        title: 'Policies of this month',
-        value: 222,
-      },
-      {
-        iconPath: '/icons/sales-chart.svg',
-        title: 'Sales',
-        value: 57402,
-        amount: true,
-      },
-      {
-        iconPath: '/icons/balance.svg',
-        title: 'Your Balance',
-        value: 7200,
-        amount: true,
-      },
-    ]"
-  ></app-statistic-widget>
+  <div class="flex flex-col justify-center items-end">
+    <app-statistic-widget
+      [widgets]="[
+        {
+          iconPath: '/icons/policy.svg',
+          title: 'Policies of this month',
+          value: 222,
+        },
+        {
+          iconPath: '/icons/sales-chart.svg',
+          title: 'Sales',
+          value: 57402,
+          amount: true,
+        },
+        {
+          iconPath: '/icons/balance.svg',
+          title: 'Your Balance',
+          value: 7200,
+          amount: true,
+        },
+      ]"
+    ></app-statistic-widget>
+  </div>
 
-  <div class="flex flex-col sm:flex-row gap-4">
+  <div class="flex flex-col lg:flex-row gap-4">
     <!-- Gráfico grande -->
     <div class="flex-1">
       <app-horizon-card
@@ -62,7 +64,7 @@
     </div>
 
     <!-- Contenedor para gráficos pequeños -->
-    <div class="flex flex-col gap-2 flex-shrink-0 w-full sm:w-1/3">
+    <div class="flex flex-col gap-2 flex-shrink-0 w-full lg:w-1/3">
       <!-- Gráfico pequeño 1 -->
       <div class="flex-1">
         <app-horizon-card
@@ -88,7 +90,7 @@
               ],
               chartData: [186891, 122544, 128398, 74184, 38765],
 
-              chartHeight: 'h-[23vh] sm:h-[16vh] h-full',
+              chartHeight: 'h-[23vh] lg:h-[16vh] h-full',
               textColorChart: 'white',
               chartColors: ['rgba(255, 111, 97, 1)', 'rgba(255, 204, 0, 1)'],
 
@@ -126,7 +128,7 @@
               ],
               chartData: [410063, 377526, 319518, 277840, 237435],
 
-              chartHeight: 'h-[23vh] sm:h-[26vh] h-full',
+              chartHeight: 'h-[23vh] lg:h-[26vh] h-full',
               chartColors: ['rgba(0, 133, 194, 1)', 'rgba(0, 74, 173, 1)'],
               textColorChart: 'white',
 
@@ -139,9 +141,9 @@
     </div>
   </div>
 
-  <div class="flex flex-col sm:flex-row gap-2">
+  <div class="flex flex-col flex-wrap lg:flex-row gap-2">
     <app-user-card-list
-      class="w-full"
+      class="flex-1"
       [cardTitle]="{
         titleText: 'Users',
         titleClasses: 'sm:text-sm font-medium',
@@ -198,7 +200,11 @@
               agent: 'Ramos Enrique',
               policy_number: '123496',
             },
-            { company: 'AIG', agent: 'Aguilar Paula', policy_number: '123497' },
+            {
+              company: 'AIG',
+              agent: 'Aguilar Paula',
+              policy_number: '123497',
+            },
             {
               company: 'Mapfre',
               agent: 'Gomez Juan',
@@ -221,6 +227,7 @@
     </app-horizon-card>
 
     <app-horizon-card
+      class="flex-1"
       [cardTitle]="{
         titleText: 'Transactions',
         titleClasses: 'sm:text-sm font-medium',
@@ -241,7 +248,11 @@
           data: [
             { insured: 'Juan Pérez', date: '2023-01-15', amount: 15000 },
             { insured: 'María García', date: '2023-02-20', amount: 20999 },
-            { insured: 'Carlos Rodríguez', date: '2023-03-10', amount: 17550 },
+            {
+              insured: 'Carlos Rodríguez',
+              date: '2023-03-10',
+              amount: 17550,
+            },
             { insured: 'Ana Fernández', date: '2023-04-05', amount: 22000 },
             { insured: 'Luis Martínez', date: '2023-05-25', amount: 18010 },
             { insured: 'Sofía López', date: '2023-06-15', amount: 19522 },

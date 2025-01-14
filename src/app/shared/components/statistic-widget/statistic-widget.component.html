@@ -1,31 +1,29 @@
-<div class="flex flex-col justify-center items-end">
-  <div
-    class="min-w-[200px] md:min-w-[800px] mt-3 flex flex-wrap gap-3 sm:grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-3 3xl:grid-cols-6"
-  >
-    @for (widget of widgets(); track $index) {
-      <div
-        class="relative flex flex-grow flex-row items-center rounded-[10px] border-[1px] border-gray-200 bg-white bg-clip-border shadow-md shadow-[#F3F3F3] animate__animated animate__zoomIn"
-      >
-        <div class="ml-[18px] flex h-[70px] w-auto flex-row items-center">
-          <div class="rounded-full bg-[#F4F7FE] p-2">
-            <span class="flex items-center text-secondary">
-              <app-svg-icon [iconPath]="widget.iconPath"></app-svg-icon>
-            </span>
-          </div>
-        </div>
-        <div class="h-50 ml-4 flex w-auto flex-col justify-center">
-          <p class="font-dm text-xs font-medium text-gray-600">
-            {{ widget.title | translate }}
-          </p>
-          @if (widget.amount) {
-            <h4 class="text-base sm:text-lg font-bold">
-              {{ widget.value | currency: 'ARS' : 'symbol' : '1.2-2' }}
-            </h4>
-          } @else {
-            <h4 class="text-base sm:text-lg font-bold">{{ widget.value }}</h4>
-          }
+<div
+  class="min-w-[200px] md:min-w-[600px] lg:min-w-[800px] mt-3 flex flex-wrap gap-3 "
+>
+  @for (widget of widgets(); track $index) {
+    <div
+      class="relative flex flex-grow flex-row items-center rounded-[10px] bg-white bg-clip-border shadow-md animate__animated animate__zoomIn"
+    >
+      <div class="ml-[18px] flex h-[70px] w-auto flex-row items-center">
+        <div class="rounded-full bg-[#F4F7FE] p-2">
+          <span class="flex items-center text-secondary">
+            <app-svg-icon [iconPath]="widget.iconPath"></app-svg-icon>
+          </span>
         </div>
       </div>
-    }
-  </div>
+      <div class="h-50 ml-4 flex w-auto flex-col justify-center">
+        <p class="font-dm text-xs font-medium text-gray-600">
+          {{ widget.title | translate }}
+        </p>
+        @if (widget.amount) {
+          <h4 class="text-base sm:text-lg font-bold">
+            {{ widget.value | currency: 'ARS' : 'symbol' : '1.2-2' }}
+          </h4>
+        } @else {
+          <h4 class="text-base sm:text-lg font-bold">{{ widget.value }}</h4>
+        }
+      </div>
+    </div>
+  }
 </div>
