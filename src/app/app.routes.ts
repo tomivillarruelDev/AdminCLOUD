@@ -2,6 +2,11 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'dashboard',
+    pathMatch: 'full'
+  },
+  {
     path: 'dashboard',
     loadChildren: () =>
       import('./dashboard/dashboard.routes').then(r => r.routes),
@@ -11,12 +16,11 @@ export const routes: Routes = [
     loadChildren: () => import('./auth/auth.routes').then(r => r.routes),
   },
   {
-    path: '**',
+    path: '404',
     loadChildren: () => import('./shared/components/not-found/not-found.routes').then(r => r.routes),
   },
   {
     path: '**',
     redirectTo: '404',
-    pathMatch: 'full',
   },
 ];

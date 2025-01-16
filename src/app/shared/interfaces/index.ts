@@ -11,3 +11,5 @@ export * from './bar-chart.interface';
 export * from './statistic-widget.interface';
 
 export * from './table.interface';
+
+export * from './navigation-item.interface';

@@ -7,7 +7,8 @@ export const routes: Routes = [
     children: [
       {
         path: 'control-panel',
-        loadComponent: () => import('./pages/control-panel/control-panel.component'),
+        loadComponent: () =>
+          import('./pages/control-panel/control-panel.component'),
         title: 'Control Panel',
         data: {
           icon: '/icons/control-panel.svg',
@@ -15,7 +16,8 @@ export const routes: Routes = [
       },
       {
         path: 'contacts',
-        loadComponent: () => import('./pages/contacts/contacts.component'),
+        loadChildren: () =>
+          import('./pages/contacts/contacts.routes').then(m => m.routes),
         title: 'Contacts',
         data: {
           icon: '/icons/contacts.svg',
@@ -23,7 +25,8 @@ export const routes: Routes = [
       },
       {
         path: 'companies',
-        loadComponent: () => import('./pages/companies/companies.component'),
+        loadChildren: () =>
+          import('./pages/companies/companies.routes').then(m => m.routes),
         title: 'Companies',
         data: {
           icon: '/icons/companies.svg',
@@ -31,7 +34,8 @@ export const routes: Routes = [
       },
       {
         path: 'policies',
-        loadComponent: () => import('./pages/policies/policies.component'),
+        loadChildren: () =>
+          import('./pages/policies/policies.routes').then(m => m.routes),
         title: 'Policies',
         data: {
           icon: '/icons/policies.svg',
@@ -39,7 +43,8 @@ export const routes: Routes = [
       },
       {
         path: 'reports',
-        loadComponent: () => import('./pages/reports/reports.component'),
+        loadChildren: () =>
+          import('./pages/reports/reports.routes').then(m => m.routes),
         title: 'Reports',
         data: {
           icon: '/icons/reports.svg',
@@ -47,7 +52,8 @@ export const routes: Routes = [
       },
       {
         path: 'claims',
-        loadComponent: () => import('./pages/claims/claims.component'),
+        loadChildren: () =>
+          import('./pages/claims/claims.routes').then(m => m.routes),
         title: 'Claims',
         data: {
           icon: '/icons/claims.svg',
@@ -55,8 +61,8 @@ export const routes: Routes = [
       },
       {
         path: 'commissions',
-        loadComponent: () =>
-          import('./pages/commissions/commissions.component'),
+        loadChildren: () =>
+          import('./pages/commissions/commissions.routes').then(m => m.routes),
         title: 'Commissions',
         data: {
           icon: '/icons/commissions.svg',
@@ -64,7 +70,8 @@ export const routes: Routes = [
       },
       {
         path: 'incentives',
-        loadComponent: () => import('./pages/incentives/incentives.component'),
+        loadChildren: () =>
+          import('./pages/incentives/incentives.routes').then(m => m.routes),
         title: 'Incentives',
         data: {
           icon: '/icons/incentives.svg',
@@ -72,15 +79,17 @@ export const routes: Routes = [
       },
       {
         path: 'cash-flow',
-        loadComponent: () => import('./pages/cash-flow/cash-flow.component'),
         title: 'Cash Flow',
+        loadChildren: () =>
+          import('./pages/cash-flow/cash-flow.routes').then(m => m.routes),
         data: {
           icon: '/icons/cash-flow.svg',
         },
       },
       {
         path: 'sales',
-        loadComponent: () => import('./pages/sales/sales.component'),
+        loadChildren: () =>
+          import('./pages/sales/sales.routes').then(m => m.routes),
         title: 'Sales',
         data: {
           icon: '/icons/sales.svg',
@@ -88,16 +97,18 @@ export const routes: Routes = [
       },
       {
         path: 'quotations',
-        loadComponent: () => import('./pages/quotations/quotations.component'),
+        loadChildren: () =>
+          import('./pages/quotations/quotations.routes').then(m => m.routes),
         title: 'Quotations',
         data: {
           icon: '/icons/quotations.svg',
         },
       },
       {
-        path: 'options',
-        loadComponent: () => import('./pages/options/options.component'),
-        title: 'Options',
+        path: 'setting',
+        loadChildren: () =>
+          import('./pages/setting/setting.routes').then(m => m.routes),
+        title: 'Setting',
         data: {
           icon: '/icons/options.svg',
         },

@@ -66,7 +66,7 @@ export class SideMenuComponent implements AfterViewInit {
     return routes
       .flatMap(route => route.children ?? [])
       .filter(
-        route => !route.path?.includes(':') && !route.path?.includes('**')
+        route => !route.path?.includes(':') && !route.path?.includes('**') && !route.path?.includes('*')
       )
       .map(route => ({ ...route, isHovered: false }));
   }

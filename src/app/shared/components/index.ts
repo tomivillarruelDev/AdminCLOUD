@@ -21,3 +21,6 @@ export * from './statistics-indicator/statistics-indicator.component';
 export * from './loader/loader.component'
 
 export * from './not-found/not-found.component'
+
+export * from './navigation-items/navigation-items.component'
+

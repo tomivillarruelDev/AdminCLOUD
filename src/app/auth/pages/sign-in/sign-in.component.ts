@@ -13,7 +13,7 @@ import {
 } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslatePipe } from '@ngx-translate/core';
 
 import { LanguageSelectorComponent } from '@shared/components';
 
@@ -24,7 +24,7 @@ import { LanguageSelectorComponent } from '@shared/components';
     CommonModule,
     RouterModule,
     ReactiveFormsModule,
-    TranslateModule,
+    TranslatePipe,
     LanguageSelectorComponent,
   ],
   templateUrl: './sign-in.component.html',
